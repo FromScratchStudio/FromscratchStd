@@ -1,0 +1,1124 @@
+{
+    "chapter_0" : [
+                    {
+                        "Layers": [
+                            {
+                                "LayerId" : "Layer_Main_0",
+                                "LayerIndex" : 0,
+                                "AssetsIdsList" : ["IMG_1"],
+                                "Comment" : "Pictures Layer"
+                            }
+                        ],
+                        
+                        "FrameKeys": [0],
+                        
+                        "FrameKeysData": {
+                            "0": {
+                                    "Layer_Main_0": {
+                                                    "IMG_1" : {
+                                                                "AssetId": "IMG_1",
+                                                                "StaticCss" : [
+                                                                                {"cssProperty":"width", "cssValue":"100%"},
+                                                                                {"cssProperty":"height", "cssValue":"100%"},
+                                                                                {"cssProperty":"visibility", "cssValue":"visible"}
+                                                                ]
+                                                    }
+                                    }
+                            }
+                        }
+                }
+                , {
+                        "Layers": [
+                            {
+                                "LayerId" : "Layer_Main_0",
+                                "LayerIndex" : 0,
+                                "AssetsIdsList" : ["IMG_2"],
+                                "Comment" : "Pictures Layer"
+                            }
+                        ],
+                        
+                        "FrameKeys": [0],
+                        
+                        "FrameKeysData": {
+                            "0": {
+                                    "Layer_Main_0": {
+                                                    "IMG_2" : {
+                                                                "AssetId": "IMG_2",
+                                                                "StaticCss" : [
+                                                                                {"cssProperty":"width", "cssValue":"100%"},
+                                                                                {"cssProperty":"height", "cssValue":"100%"},
+                                                                                {"cssProperty":"visibility", "cssValue":"visible"}
+                                                                ]
+                                                    }
+                                    }
+                            }
+                        }
+                }
+                , {
+                        "Layers": [
+                            {
+                                "LayerId" : "Layer_Main_0",
+                                "LayerIndex" : 0,
+                                "AssetsIdsList" : ["IMG_3"],
+                                "Comment" : "Pictures Layer"
+                            }
+                            ,{
+                                "LayerId" : "Layer_1",
+                                "LayerIndex" : 1,
+                                "AssetsIdsList" : ["BUL_TXT_25","BUL_TXT_26"],
+                                "Comment" : "Bubbles layer",
+                                "CustomLayerCssClass": "BUBBLE_ROOT_CSS"
+                            }
+                        ],
+                        
+                        "FrameKeys": [0,1,2],
+                        
+                        "FrameKeysData": {
+                            "0": {
+                                    "Layer_Main_0": {
+                                                    "IMG_3" : {
+                                                                "AssetId": "IMG_3",
+                                                                "StaticCss" : [
+                                                                                {"cssProperty":"width", "cssValue":"100%"},
+                                                                                {"cssProperty":"height", "cssValue":"100%"},
+                                                                                {"cssProperty":"visibility", "cssValue":"visible"}
+                                                                ]
+                                                    }
+                                    }
+                            }
+                            ,"1": {
+                                    "Layer_1": {
+                                                    "BUL_TXT_25" : {
+                                                                "AssetId": "BUL_TXT_25",
+                                                                "CssClass" : "BUBBLE_DOWN"
+                                                    }
+                                    }
+                                    
+                            }
+                            ,"2": {
+                                    "Layer_1": {
+                                                    "BUL_TXT_26" : {
+                                                                "AssetId": "BUL_TXT_26",
+                                                                "CssClass" : "BUBBLE_DOWN"
+                                                    }
+                                    }
+                            }
+                        }
+                }
+                , {
+                        "Layers": [
+                            {
+                                "LayerId" : "Layer_Main_0",
+                                "LayerIndex" : 0,
+                                "AssetsIdsList" : ["IMG_4"],
+                                "Comment" : "Pictures Layer"
+                            }
+                            ,{
+                                "LayerId" : "Layer_1",
+                                "LayerIndex" : 1,
+                                "AssetsIdsList" : ["BUL_TXT_26","BUL_TXT_27"],
+                                "Comment" : "Bubbles layer",
+                                "CustomLayerCssClass": "BUBBLE_ROOT_CSS"
+                            }
+                        ],
+                        
+                        "FrameKeys": [0,1],
+                        
+                        "FrameKeysData": {
+                            "0": {
+                                    "Layer_Main_0": {
+                                                    "IMG_4" : {
+                                                                "AssetId": "IMG_4",
+                                                                "StaticCss" : [
+                                                                                {"cssProperty":"width", "cssValue":"100%"},
+                                                                                {"cssProperty":"height", "cssValue":"100%"},
+                                                                                {"cssProperty":"visibility", "cssValue":"visible"}
+                                                                ]
+                                                    }
+                                    }
+                            }
+                        , "1": {
+                                    "Layer_1": {
+                                                    "BUL_TXT_27" : {
+                                                                "AssetId": "BUL_TXT_27",
+                                                                "CssClass" : "BUBBLE_DOWN"
+                                                    }
+                                    }
+                        }
+                    }
+                }
+                , {
+                        "Layers": [
+                            {
+                                "LayerId" : "Layer_Main_0",
+                                "LayerIndex" : 0,
+                                "AssetsIdsList" : ["IMG_5"],
+                                "Comment" : "Pictures Layer"
+                            }
+                        ],
+                        
+                        "FrameKeys": [0],
+                        
+                        "FrameKeysData": {
+                            "0": {
+                                    "Layer_Main_0": {
+                                                    "IMG_5" : {
+                                                                "AssetId": "IMG_5",
+                                                                "StaticCss" : [
+                                                                                {"cssProperty":"width", "cssValue":"100%"},
+                                                                                {"cssProperty":"height", "cssValue":"100%"},
+                                                                                {"cssProperty":"visibility", "cssValue":"visible"}
+                                                                ]
+                                                    }
+                                    }
+                            }
+                        }
+                }
+                , {
+                        "Layers": [
+                            {
+                                "LayerId" : "Layer_Main_0",
+                                "LayerIndex" : 0,
+                                "AssetsIdsList" : ["IMG_6"],
+                                "Comment" : "Pictures Layer"
+                            }
+                        ],
+                        
+                        "FrameKeys": [0],
+                        
+                        "FrameKeysData": {
+                            "0": {
+                                    "Layer_Main_0": {
+                                                    "IMG_6" : {
+                                                                "AssetId": "IMG_6",
+                                                                "StaticCss" : [
+                                                                                {"cssProperty":"width", "cssValue":"100%"},
+                                                                                {"cssProperty":"height", "cssValue":"100%"},
+                                                                                {"cssProperty":"visibility", "cssValue":"visible"}
+                                                                ]
+                                                    }
+                                    }
+                            }
+                        }
+                }
+                , {
+                        "Layers": [
+                            {
+                                "LayerId" : "Layer_Main_0",
+                                "LayerIndex" : 0,
+                                "AssetsIdsList" : ["IMG_7"],
+                                "Comment" : "Pictures Layer"
+                            }
+                        ],
+                        
+                        "FrameKeys": [0],
+                        
+                        "FrameKeysData": {
+                            "0": {
+                                    "Layer_Main_0": {
+                                                    "IMG_7" : {
+                                                                "AssetId": "IMG_7",
+                                                                "StaticCss" : [
+                                                                                {"cssProperty":"width", "cssValue":"100%"},
+                                                                                {"cssProperty":"height", "cssValue":"100%"},
+                                                                                {"cssProperty":"visibility", "cssValue":"visible"}
+                                                                ]
+                                                    }
+                                    }
+                            }
+                        }
+                }
+                , {
+                        "Layers": [
+                            {
+                                "LayerId" : "Layer_Main_0",
+                                "LayerIndex" : 0,
+                                "AssetsIdsList" : ["IMG_8"],
+                                "Comment" : "Pictures Layer"
+                            }
+                        ],
+                        
+                        "FrameKeys": [0],
+                        
+                        "FrameKeysData": {
+                            "0": {
+                                    "Layer_Main_0": {
+                                                    "IMG_8" : {
+                                                                "AssetId": "IMG_8",
+                                                                "StaticCss" : [
+                                                                                {"cssProperty":"width", "cssValue":"100%"},
+                                                                                {"cssProperty":"height", "cssValue":"100%"},
+                                                                                {"cssProperty":"visibility", "cssValue":"visible"}
+                                                                ]
+                                                    }
+                                    }
+                            }
+                        }
+                }
+                , {
+                        "Layers": [
+                            {
+                                "LayerId" : "Layer_Main_0",
+                                "LayerIndex" : 0,
+                                "AssetsIdsList" : ["IMG_9"],
+                                "Comment" : "Pictures Layer"
+                            }
+                        ],
+                        
+                        "FrameKeys": [0],
+                        
+                        "FrameKeysData": {
+                            "0": {
+                                    "Layer_Main_0": {
+                                                    "IMG_9" : {
+                                                                "AssetId": "IMG_9",
+                                                                "StaticCss" : [
+                                                                                {"cssProperty":"width", "cssValue":"100%"},
+                                                                                {"cssProperty":"height", "cssValue":"100%"},
+                                                                                {"cssProperty":"visibility", "cssValue":"visible"}
+                                                                ]
+                                                    }
+                                    }
+                            }
+                        }
+                }
+                , {
+                        "Layers": [
+                            {
+                                "LayerId" : "Layer_Main_0",
+                                "LayerIndex" : 0,
+                                "AssetsIdsList" : ["IMG_10"],
+                                "Comment" : "Pictures Layer"
+                            }
+                        ],
+                        
+                        "FrameKeys": [0],
+                        
+                        "FrameKeysData": {
+                            "0": {
+                                    "Layer_Main_0": {
+                                                    "IMG_10" : {
+                                                                "AssetId": "IMG_10",
+                                                                "StaticCss" : [
+                                                                                {"cssProperty":"width", "cssValue":"100%"},
+                                                                                {"cssProperty":"height", "cssValue":"100%"},
+                                                                                {"cssProperty":"visibility", "cssValue":"visible"}
+                                                                ]
+                                                    }
+                                    }
+                            }
+                        }
+                }
+                , {
+                        "Layers": [
+                            {
+                                "LayerId" : "Layer_Main_0",
+                                "LayerIndex" : 0,
+                                "AssetsIdsList" : ["IMG_11"],
+                                "Comment" : "Pictures Layer"
+                            }
+                        ],
+                        
+                        "FrameKeys": [0],
+                        
+                        "FrameKeysData": {
+                            "0": {
+                                    "Layer_Main_0": {
+                                                    "IMG_11" : {
+                                                                "AssetId": "IMG_11",
+                                                                "StaticCss" : [
+                                                                                {"cssProperty":"width", "cssValue":"100%"},
+                                                                                {"cssProperty":"height", "cssValue":"100%"},
+                                                                                {"cssProperty":"visibility", "cssValue":"visible"}
+                                                                ]
+                                                    }
+                                    }
+                            }
+                        }
+                }
+                , {
+                        "Layers": [
+                            {
+                                "LayerId" : "Layer_Main_0",
+                                "LayerIndex" : 0,
+                                "AssetsIdsList" : ["IMG_12"],
+                                "Comment" : "Pictures Layer"
+                            }
+                        ],
+                        
+                        "FrameKeys": [0],
+                        
+                        "FrameKeysData": {
+                            "0": {
+                                    "Layer_Main_0": {
+                                                    "IMG_12" : {
+                                                                "AssetId": "IMG_12",
+                                                                "StaticCss" : [
+                                                                                {"cssProperty":"width", "cssValue":"100%"},
+                                                                                {"cssProperty":"height", "cssValue":"100%"},
+                                                                                {"cssProperty":"visibility", "cssValue":"visible"}
+                                                                ]
+                                                    }
+                                    }
+                            }
+                        }
+                }
+                , {
+                        "Layers": [
+                            {
+                                "LayerId" : "Layer_Main_0",
+                                "LayerIndex" : 0,
+                                "AssetsIdsList" : ["IMG_13"],
+                                "Comment" : "Pictures Layer"
+                            }
+                        ],
+                        
+                        "FrameKeys": [0],
+                        
+                        "FrameKeysData": {
+                            "0": {
+                                    "Layer_Main_0": {
+                                                    "IMG_13" : {
+                                                                "AssetId": "IMG_13",
+                                                                "StaticCss" : [
+                                                                                {"cssProperty":"width", "cssValue":"100%"},
+                                                                                {"cssProperty":"height", "cssValue":"100%"},
+                                                                                {"cssProperty":"visibility", "cssValue":"visible"}
+                                                                ]
+                                                    }
+                                    }
+                            }
+                        }
+                }
+                , {
+                        "Layers": [
+                            {
+                                "LayerId" : "Layer_Main_0",
+                                "LayerIndex" : 0,
+                                "AssetsIdsList" : ["IMG_14"],
+                                "Comment" : "Pictures Layer"
+                            }
+                        ],
+                        
+                        "FrameKeys": [0],
+                        
+                        "FrameKeysData": {
+                            "0": {
+                                    "Layer_Main_0": {
+                                                    "IMG_14" : {
+                                                                "AssetId": "IMG_14",
+                                                                "StaticCss" : [
+                                                                                {"cssProperty":"width", "cssValue":"100%"},
+                                                                                {"cssProperty":"height", "cssValue":"100%"},
+                                                                                {"cssProperty":"visibility", "cssValue":"visible"}
+                                                                ]
+                                                    }
+                                    }
+                            }
+                        }
+                }
+                , {
+                        "Layers": [
+                            {
+                                "LayerId" : "Layer_Main_0",
+                                "LayerIndex" : 0,
+                                "AssetsIdsList" : ["IMG_15"],
+                                "Comment" : "Pictures Layer"
+                            }
+                        ],
+                        
+                        "FrameKeys": [0],
+                        
+                        "FrameKeysData": {
+                            "0": {
+                                    "Layer_Main_0": {
+                                                    "IMG_15" : {
+                                                                "AssetId": "IMG_15",
+                                                                "StaticCss" : [
+                                                                                {"cssProperty":"width", "cssValue":"100%"},
+                                                                                {"cssProperty":"height", "cssValue":"100%"},
+                                                                                {"cssProperty":"visibility", "cssValue":"visible"}
+                                                                ]
+                                                    }
+                                    }
+                            }
+                        }
+                }
+                , {
+                        "Layers": [
+                            {
+                                "LayerId" : "Layer_Main_0",
+                                "LayerIndex" : 0,
+                                "AssetsIdsList" : ["IMG_16"],
+                                "Comment" : "Pictures Layer"
+                            }
+                        ],
+                        
+                        "FrameKeys": [0],
+                        
+                        "FrameKeysData": {
+                            "0": {
+                                    "Layer_Main_0": {
+                                                    "IMG_16" : {
+                                                                "AssetId": "IMG_16",
+                                                                "StaticCss" : [
+                                                                                {"cssProperty":"width", "cssValue":"100%"},
+                                                                                {"cssProperty":"height", "cssValue":"100%"},
+                                                                                {"cssProperty":"visibility", "cssValue":"visible"}
+                                                                ]
+                                                    }
+                                    }
+                            }
+                        }
+                }
+                , {
+                        "Layers": [
+                            {
+                                "LayerId" : "Layer_Main_0",
+                                "LayerIndex" : 0,
+                                "AssetsIdsList" : ["IMG_17"],
+                                "Comment" : "Pictures Layer"
+                            }
+                        ],
+                        
+                        "FrameKeys": [0],
+                        
+                        "FrameKeysData": {
+                            "0": {
+                                    "Layer_Main_0": {
+                                                    "IMG_17" : {
+                                                                "AssetId": "IMG_17",
+                                                                "StaticCss" : [
+                                                                                {"cssProperty":"width", "cssValue":"100%"},
+                                                                                {"cssProperty":"height", "cssValue":"100%"},
+                                                                                {"cssProperty":"visibility", "cssValue":"visible"}
+                                                                ]
+                                                    }
+                                    }
+                            }
+                        }
+                }
+                , {
+                        "Layers": [
+                            {
+                                "LayerId" : "Layer_Main_0",
+                                "LayerIndex" : 0,
+                                "AssetsIdsList" : ["IMG_18"],
+                                "Comment" : "Pictures Layer"
+                            }
+                        ],
+                        
+                        "FrameKeys": [0],
+                        
+                        "FrameKeysData": {
+                            "0": {
+                                    "Layer_Main_0": {
+                                                    "IMG_18" : {
+                                                                "AssetId": "IMG_18",
+                                                                "StaticCss" : [
+                                                                                {"cssProperty":"width", "cssValue":"100%"},
+                                                                                {"cssProperty":"height", "cssValue":"100%"},
+                                                                                {"cssProperty":"visibility", "cssValue":"visible"}
+                                                                ]
+                                                    }
+                                    }
+                            }
+                        }
+                }
+                , {
+                        "Layers": [
+                            {
+                                "LayerId" : "Layer_Main_0",
+                                "LayerIndex" : 0,
+                                "AssetsIdsList" : ["IMG_19"],
+                                "Comment" : "Pictures Layer"
+                            }
+                        ],
+                        
+                        "FrameKeys": [0],
+                        
+                        "FrameKeysData": {
+                            "0": {
+                                    "Layer_Main_0": {
+                                                    "IMG_19" : {
+                                                                "AssetId": "IMG_19",
+                                                                "StaticCss" : [
+                                                                                {"cssProperty":"width", "cssValue":"100%"},
+                                                                                {"cssProperty":"height", "cssValue":"100%"},
+                                                                                {"cssProperty":"visibility", "cssValue":"visible"}
+                                                                ]
+                                                    }
+                                    }
+                            }
+                        }
+                }
+                , {
+                        "Layers": [
+                            {
+                                "LayerId" : "Layer_Main_0",
+                                "LayerIndex" : 0,
+                                "AssetsIdsList" : ["IMG_20"],
+                                "Comment" : "Pictures Layer"
+                            }
+                        ],
+                        
+                        "FrameKeys": [0],
+                        
+                        "FrameKeysData": {
+                            "0": {
+                                    "Layer_Main_0": {
+                                                    "IMG_20" : {
+                                                                "AssetId": "IMG_20",
+                                                                "StaticCss" : [
+                                                                                {"cssProperty":"width", "cssValue":"100%"},
+                                                                                {"cssProperty":"height", "cssValue":"100%"},
+                                                                                {"cssProperty":"visibility", "cssValue":"visible"}
+                                                                ]
+                                                    }
+                                    }
+                            }
+                        }
+                }
+                , {
+                        "Layers": [
+                            {
+                                "LayerId" : "Layer_Main_0",
+                                "LayerIndex" : 0,
+                                "AssetsIdsList" : ["IMG_21"],
+                                "Comment" : "Pictures Layer"
+                            }
+                        ],
+                        
+                        "FrameKeys": [0],
+                        
+                        "FrameKeysData": {
+                            "0": {
+                                    "Layer_Main_0": {
+                                                    "IMG_21" : {
+                                                                "AssetId": "IMG_21",
+                                                                "StaticCss" : [
+                                                                                {"cssProperty":"width", "cssValue":"100%"},
+                                                                                {"cssProperty":"height", "cssValue":"100%"},
+                                                                                {"cssProperty":"visibility", "cssValue":"visible"}
+                                                                ]
+                                                    }
+                                    }
+                            }
+                        }
+                }
+                , {
+                        "Layers": [
+                            {
+                                "LayerId" : "Layer_Main_0",
+                                "LayerIndex" : 0,
+                                "AssetsIdsList" : ["IMG_22"],
+                                "Comment" : "Pictures Layer"
+                            }
+                        ],
+                        
+                        "FrameKeys": [0],
+                        
+                        "FrameKeysData": {
+                            "0": {
+                                    "Layer_Main_0": {
+                                                    "IMG_22" : {
+                                                                "AssetId": "IMG_22",
+                                                                "StaticCss" : [
+                                                                                {"cssProperty":"width", "cssValue":"100%"},
+                                                                                {"cssProperty":"height", "cssValue":"100%"},
+                                                                                {"cssProperty":"visibility", "cssValue":"visible"}
+                                                                ]
+                                                    }
+                                    }
+                            }
+                        }
+                }
+                , {
+                        "Layers": [
+                            {
+                                "LayerId" : "Layer_Main_0",
+                                "LayerIndex" : 0,
+                                "AssetsIdsList" : ["IMG_23"],
+                                "Comment" : "Pictures Layer"
+                            }
+                        ],
+                        
+                        "FrameKeys": [0],
+                        
+                        "FrameKeysData": {
+                            "0": {
+                                    "Layer_Main_0": {
+                                                    "IMG_23" : {
+                                                                "AssetId": "IMG_23",
+                                                                "StaticCss" : [
+                                                                                {"cssProperty":"width", "cssValue":"100%"},
+                                                                                {"cssProperty":"height", "cssValue":"100%"},
+                                                                                {"cssProperty":"visibility", "cssValue":"visible"}
+                                                                ]
+                                                    }
+                                    }
+                            }
+                        }
+                }
+                , {
+                        "Layers": [
+                            {
+                                "LayerId" : "Layer_Main_0",
+                                "LayerIndex" : 0,
+                                "AssetsIdsList" : ["IMG_24"],
+                                "Comment" : "Pictures Layer"
+                            }
+                        ],
+                        
+                        "FrameKeys": [0],
+                        
+                        "FrameKeysData": {
+                            "0": {
+                                    "Layer_Main_0": {
+                                                    "IMG_24" : {
+                                                                "AssetId": "IMG_24",
+                                                                "StaticCss" : [
+                                                                                {"cssProperty":"width", "cssValue":"100%"},
+                                                                                {"cssProperty":"height", "cssValue":"100%"},
+                                                                                {"cssProperty":"visibility", "cssValue":"visible"}
+                                                                ]
+                                                    }
+                                    }
+                            }
+                        }
+                }
+                , {
+                        "Layers": [
+                            {
+                                "LayerId" : "Layer_Main_0",
+                                "LayerIndex" : 0,
+                                "AssetsIdsList" : ["IMG_25"],
+                                "Comment" : "Pictures Layer"
+                            }
+                        ],
+                        
+                        "FrameKeys": [0],
+                        
+                        "FrameKeysData": {
+                            "0": {
+                                    "Layer_Main_0": {
+                                                    "IMG_25" : {
+                                                                "AssetId": "IMG_25",
+                                                                "StaticCss" : [
+                                                                                {"cssProperty":"width", "cssValue":"100%"},
+                                                                                {"cssProperty":"height", "cssValue":"100%"},
+                                                                                {"cssProperty":"visibility", "cssValue":"visible"}
+                                                                ]
+                                                    }
+                                    }
+                            }
+                        }
+                }
+                , {
+                        "Layers": [
+                            {
+                                "LayerId" : "Layer_Main_0",
+                                "LayerIndex" : 0,
+                                "AssetsIdsList" : ["IMG_26"],
+                                "Comment" : "Pictures Layer"
+                            }
+                        ],
+                        
+                        "FrameKeys": [0],
+                        
+                        "FrameKeysData": {
+                            "0": {
+                                    "Layer_Main_0": {
+                                                    "IMG_26" : {
+                                                                "AssetId": "IMG_26",
+                                                                "StaticCss" : [
+                                                                                {"cssProperty":"width", "cssValue":"100%"},
+                                                                                {"cssProperty":"height", "cssValue":"100%"},
+                                                                                {"cssProperty":"visibility", "cssValue":"visible"}
+                                                                ]
+                                                    }
+                                    }
+                            }
+                        }
+                }
+                , {
+                        "Layers": [
+                            {
+                                "LayerId" : "Layer_Main_0",
+                                "LayerIndex" : 0,
+                                "AssetsIdsList" : ["IMG_27"],
+                                "Comment" : "Pictures Layer"
+                            }
+                        ],
+                        
+                        "FrameKeys": [0],
+                        
+                        "FrameKeysData": {
+                            "0": {
+                                    "Layer_Main_0": {
+                                                    "IMG_27" : {
+                                                                "AssetId": "IMG_27",
+                                                                "StaticCss" : [
+                                                                                {"cssProperty":"width", "cssValue":"100%"},
+                                                                                {"cssProperty":"height", "cssValue":"100%"},
+                                                                                {"cssProperty":"visibility", "cssValue":"visible"}
+                                                                ]
+                                                    }
+                                    }
+                            }
+                        }
+                }
+                , {
+                        "Layers": [
+                            {
+                                "LayerId" : "Layer_Main_0",
+                                "LayerIndex" : 0,
+                                "AssetsIdsList" : ["IMG_28"],
+                                "Comment" : "Pictures Layer"
+                            }
+                        ],
+                        
+                        "FrameKeys": [0],
+                        
+                        "FrameKeysData": {
+                            "0": {
+                                    "Layer_Main_0": {
+                                                    "IMG_28" : {
+                                                                "AssetId": "IMG_28",
+                                                                "StaticCss" : [
+                                                                                {"cssProperty":"width", "cssValue":"100%"},
+                                                                                {"cssProperty":"height", "cssValue":"100%"},
+                                                                                {"cssProperty":"visibility", "cssValue":"visible"}
+                                                                ]
+                                                    }
+                                    }
+                            }
+                        }
+                }
+                , {
+                        "Layers": [
+                            {
+                                "LayerId" : "Layer_Main_0",
+                                "LayerIndex" : 0,
+                                "AssetsIdsList" : ["IMG_29"],
+                                "Comment" : "Pictures Layer"
+                            }
+                        ],
+                        
+                        "FrameKeys": [0],
+                        
+                        "FrameKeysData": {
+                            "0": {
+                                    "Layer_Main_0": {
+                                                    "IMG_29" : {
+                                                                "AssetId": "IMG_29",
+                                                                "StaticCss" : [
+                                                                                {"cssProperty":"width", "cssValue":"100%"},
+                                                                                {"cssProperty":"height", "cssValue":"100%"},
+                                                                                {"cssProperty":"visibility", "cssValue":"visible"}
+                                                                ]
+                                                    }
+                                    }
+                            }
+                        }
+                }
+                , {
+                        "Layers": [
+                            {
+                                "LayerId" : "Layer_Main_0",
+                                "LayerIndex" : 0,
+                                "AssetsIdsList" : ["IMG_30"],
+                                "Comment" : "Pictures Layer"
+                            }
+                        ],
+                        
+                        "FrameKeys": [0],
+                        
+                        "FrameKeysData": {
+                            "0": {
+                                    "Layer_Main_0": {
+                                                    "IMG_30" : {
+                                                                "AssetId": "IMG_30",
+                                                                "StaticCss" : [
+                                                                                {"cssProperty":"width", "cssValue":"100%"},
+                                                                                {"cssProperty":"height", "cssValue":"100%"},
+                                                                                {"cssProperty":"visibility", "cssValue":"visible"}
+                                                                ]
+                                                    }
+                                    }
+                            }
+                        }
+                }
+                , {
+                        "Layers": [
+                            {
+                                "LayerId" : "Layer_Main_0",
+                                "LayerIndex" : 0,
+                                "AssetsIdsList" : ["IMG_31"],
+                                "Comment" : "Pictures Layer"
+                            }
+                        ],
+                        
+                        "FrameKeys": [0],
+                        
+                        "FrameKeysData": {
+                            "0": {
+                                    "Layer_Main_0": {
+                                                    "IMG_31" : {
+                                                                "AssetId": "IMG_31",
+                                                                "StaticCss" : [
+                                                                                {"cssProperty":"width", "cssValue":"100%"},
+                                                                                {"cssProperty":"height", "cssValue":"100%"},
+                                                                                {"cssProperty":"visibility", "cssValue":"visible"}
+                                                                ]
+                                                    }
+                                    }
+                            }
+                        }
+                }
+                , {
+                        "Layers": [
+                            {
+                                "LayerId" : "Layer_Main_0",
+                                "LayerIndex" : 0,
+                                "AssetsIdsList" : ["IMG_32"],
+                                "Comment" : "Pictures Layer"
+                            }
+                        ],
+                        
+                        "FrameKeys": [0],
+                        
+                        "FrameKeysData": {
+                            "0": {
+                                    "Layer_Main_0": {
+                                                    "IMG_32" : {
+                                                                "AssetId": "IMG_32",
+                                                                "StaticCss" : [
+                                                                                {"cssProperty":"width", "cssValue":"100%"},
+                                                                                {"cssProperty":"height", "cssValue":"100%"},
+                                                                                {"cssProperty":"visibility", "cssValue":"visible"}
+                                                                ]
+                                                    }
+                                    }
+                            }
+                        }
+                }
+                , {
+                        "Layers": [
+                            {
+                                "LayerId" : "Layer_Main_0",
+                                "LayerIndex" : 0,
+                                "AssetsIdsList" : ["IMG_33"],
+                                "Comment" : "Pictures Layer"
+                            }
+                        ],
+                        
+                        "FrameKeys": [0],
+                        
+                        "FrameKeysData": {
+                            "0": {
+                                    "Layer_Main_0": {
+                                                    "IMG_33" : {
+                                                                "AssetId": "IMG_33",
+                                                                "StaticCss" : [
+                                                                                {"cssProperty":"width", "cssValue":"100%"},
+                                                                                {"cssProperty":"height", "cssValue":"100%"},
+                                                                                {"cssProperty":"visibility", "cssValue":"visible"}
+                                                                ]
+                                                    }
+                                    }
+                            }
+                        }
+                }
+                , {
+                        "Layers": [
+                            {
+                                "LayerId" : "Layer_Main_0",
+                                "LayerIndex" : 0,
+                                "AssetsIdsList" : ["IMG_34"],
+                                "Comment" : "Pictures Layer"
+                            }
+                        ],
+                        
+                        "FrameKeys": [0],
+                        
+                        "FrameKeysData": {
+                            "0": {
+                                    "Layer_Main_0": {
+                                                    "IMG_34" : {
+                                                                "AssetId": "IMG_34",
+                                                                "StaticCss" : [
+                                                                                {"cssProperty":"width", "cssValue":"100%"},
+                                                                                {"cssProperty":"height", "cssValue":"100%"},
+                                                                                {"cssProperty":"visibility", "cssValue":"visible"}
+                                                                ]
+                                                    }
+                                    }
+                            }
+                        }
+                }
+                , {
+                        "Layers": [
+                            {
+                                "LayerId" : "Layer_Main_0",
+                                "LayerIndex" : 0,
+                                "AssetsIdsList" : ["IMG_35"],
+                                "Comment" : "Pictures Layer"
+                            }
+                        ],
+                        
+                        "FrameKeys": [0],
+                        
+                        "FrameKeysData": {
+                            "0": {
+                                    "Layer_Main_0": {
+                                                    "IMG_35" : {
+                                                                "AssetId": "IMG_35",
+                                                                "StaticCss" : [
+                                                                                {"cssProperty":"width", "cssValue":"100%"},
+                                                                                {"cssProperty":"height", "cssValue":"100%"},
+                                                                                {"cssProperty":"visibility", "cssValue":"visible"}
+                                                                ]
+                                                    }
+                                    }
+                            }
+                        }
+                }
+                , {
+                        "Layers": [
+                            {
+                                "LayerId" : "Layer_Main_0",
+                                "LayerIndex" : 0,
+                                "AssetsIdsList" : ["IMG_36"],
+                                "Comment" : "Pictures Layer"
+                            }
+                        ],
+                        
+                        "FrameKeys": [0],
+                        
+                        "FrameKeysData": {
+                            "0": {
+                                    "Layer_Main_0": {
+                                                    "IMG_36" : {
+                                                                "AssetId": "IMG_36",
+                                                                "StaticCss" : [
+                                                                                {"cssProperty":"width", "cssValue":"100%"},
+                                                                                {"cssProperty":"height", "cssValue":"100%"},
+                                                                                {"cssProperty":"visibility", "cssValue":"visible"}
+                                                                ]
+                                                    }
+                                    }
+                            }
+                        }
+                }
+                , {
+                        "Layers": [
+                            {
+                                "LayerId" : "Layer_Main_0",
+                                "LayerIndex" : 0,
+                                "AssetsIdsList" : ["IMG_37"],
+                                "Comment" : "Pictures Layer"
+                            }
+                        ],
+                        
+                        "FrameKeys": [0],
+                        
+                        "FrameKeysData": {
+                            "0": {
+                                    "Layer_Main_0": {
+                                                    "IMG_37" : {
+                                                                "AssetId": "IMG_37",
+                                                                "StaticCss" : [
+                                                                                {"cssProperty":"width", "cssValue":"100%"},
+                                                                                {"cssProperty":"height", "cssValue":"100%"},
+                                                                                {"cssProperty":"visibility", "cssValue":"visible"}
+                                                                ]
+                                                    }
+                                    }
+                            }
+                        }
+                }
+                , {
+                        "Layers": [
+                            {
+                                "LayerId" : "Layer_Main_0",
+                                "LayerIndex" : 0,
+                                "AssetsIdsList" : ["IMG_38"],
+                                "Comment" : "Pictures Layer"
+                            }
+                        ],
+                        
+                        "FrameKeys": [0],
+                        
+                        "FrameKeysData": {
+                            "0": {
+                                    "Layer_Main_0": {
+                                                    "IMG_38" : {
+                                                                "AssetId": "IMG_38",
+                                                                "StaticCss" : [
+                                                                                {"cssProperty":"width", "cssValue":"100%"},
+                                                                                {"cssProperty":"height", "cssValue":"100%"},
+                                                                                {"cssProperty":"visibility", "cssValue":"visible"}
+                                                                ]
+                                                    }
+                                    }
+                            }
+                        }
+                }
+                , {
+                        "Layers": [
+                            {
+                                "LayerId" : "Layer_Main_0",
+                                "LayerIndex" : 0,
+                                "AssetsIdsList" : ["IMG_39"],
+                                "Comment" : "Pictures Layer"
+                            }
+                        ],
+                        
+                        "FrameKeys": [0],
+                        
+                        "FrameKeysData": {
+                            "0": {
+                                    "Layer_Main_0": {
+                                                    "IMG_39" : {
+                                                                "AssetId": "IMG_39",
+                                                                "StaticCss" : [
+                                                                                {"cssProperty":"width", "cssValue":"100%"},
+                                                                                {"cssProperty":"height", "cssValue":"100%"},
+                                                                                {"cssProperty":"visibility", "cssValue":"visible"}
+                                                                ]
+                                                    }
+                                    }
+                            }
+                        }
+                }
+                , {
+                        "Layers": [
+                            {
+                                "LayerId" : "Layer_Main_0",
+                                "LayerIndex" : 0,
+                                "AssetsIdsList" : ["IMG_40"],
+                                "Comment" : "Pictures Layer"
+                            }
+                        ],
+                        
+                        "FrameKeys": [0],
+                        
+                        "FrameKeysData": {
+                            "0": {
+                                    "Layer_Main_0": {
+                                                    "IMG_40" : {
+                                                                "AssetId": "IMG_40",
+                                                                "StaticCss" : [
+                                                                                {"cssProperty":"width", "cssValue":"100%"},
+                                                                                {"cssProperty":"height", "cssValue":"100%"},
+                                                                                {"cssProperty":"visibility", "cssValue":"visible"}
+                                                                ]
+                                                    }
+                                    }
+                            }
+                        }
+                }
+    ] 
+}
+

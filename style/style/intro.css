@@ -1,0 +1,218 @@
+body
+{
+    background-color: black;
+    font-family: 'Gruppo', cursive;
+}
+
+#introContainer
+{
+    width: 100%;
+    height: 100%;
+}
+
+#fssTitle
+{
+    position: fixed;
+    top: 15px;
+    right: 60px;
+    vertical-align:middle;
+    font-family: 'Gruppo', cursive;
+    font-size:30;
+    color: white;
+    text-align: center;
+    z-index: 1000;
+}
+
+#fssLang
+{
+    position: fixed;
+    top: 15px;
+    /*right: 470px;*/
+    left:15px;
+    width:30px;
+    height:36px;
+    vertical-align:middle;
+    font-family: 'Gruppo', cursive;
+    font-size:30;
+    color: white;
+    text-align: center;
+    vertical-align: middle;
+    align-content: center;
+    z-index: 1000;
+}
+    
+#frLangImg
+{
+    position: absolute;
+    top:0px;
+    left:0px;
+    width:14px;
+    height:8px;
+    border:solid 1px white;
+}
+    
+#enLangImg
+{
+    position: absolute;
+    top:12px;
+    left:0px;
+    width:14px;
+    height:8px;
+    align-content: stretch;
+    opacity: 0.5;
+    border:solid 1px white;
+}
+
+#fromScratchBg
+{
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0.5;
+}
+   
+#fromScratchBg2
+{
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    opacity: 0.5;
+}
+
+#fromScratchBgMask
+{
+    width: 100%;
+    height: 100%;
+    z-index: 500;
+    background-color: black;
+    opacity: 0.5;
+}
+
+#moncercle{
+      position:absolute;
+      top:50%;
+      left: 50%;
+      margin-top: -125px;
+      margin-left:-125px;
+      background-image: url(img/gallery/WhitePaperCovers/casquetteBoyColoYingYang.png);
+      border-radius:50%;
+      width:250px;
+      height:250px;
+      z-index: 20;
+      /*border:2px solid #679403;*/
+}
+
+#cerclePic
+{
+      position:relative;
+      top:0px;
+      /*background-image: url(img/gallery/WhitePaperCovers/casquetteBoyColoYingYang.png);*/
+      border-radius:50%;
+      width:250px;
+      height:250px;
+      z-index: 21;
+}
+
+#moncercleIn{
+      position:absolute;
+      top:50%;
+      left:50%;
+      margin-top:-110px;
+      margin-left:-110px;
+      background:#FFFFFF;
+      border-radius:50%;
+      width:220px;
+      height:220px;
+      background-color: black;
+      opacity:0.8;
+      z-index: 22;
+}
+    
+#fromScratchCover
+{
+      position:absolute;
+      top:50%;
+      border-radius: 50%;
+      margin-top:-54px;
+      left:50%;
+      margin-left:-54px;
+      background:#FFFFFF;
+      /*border-radius:50%;*/
+      width:100px;
+      height:100px;
+      border-style: solid;
+      border-color: white;
+      border-width: 4px;
+      z-index: 23;
+}
+    
+/*Centered version*/
+/*#moncercleIn{
+      position:relative;
+      top:-420px;
+      left:30px;
+      background:#FFFFFF;
+      border-radius:50%;
+      width:440px;
+      height:440px;
+}*/
+    
+#enterSiteDiv
+{
+    position:absolute;
+    top:170px;
+    left:50%;
+    margin-left:-30%;
+	width:60%;
+	height:10%;
+    background-color:black;
+    color:white;
+    font-family: cursive;
+    font-size: 15px;
+    font:bold;
+    text-align:center;
+    vertical-align:middle;
+    font-family: 'Gruppo', cursive;
+    z-index: 24;
+}  
+
+#trackInfoDiv
+{
+    position:absolute;
+    top:80%;
+    left: 50%;
+	width:60%;
+	height:5%;
+    margin-top: -2%;
+    margin-left: -30%;
+    /*background-color:black;*/
+    color:white;
+    font-family: cursive;
+    font-size: 15px;
+    font:bold;
+    text-align:center;
+    vertical-align:middle;
+    font-family: 'Gruppo', cursive;
+    opacity:0.8;
+    text-align: center;
+    vertical-align: middle;
+}  
+    
+#muteDiv
+{
+    position:absolute;
+    top:78%;
+    left: 50%;
+    margin-left: -8px;
+	width:16px;
+	height:16px;
+    z-index: 24;
+    }
+   
+#muteDiv img
+{
+    position:relative;
+    top:50px;
+	width:15px;
+	height:15px;
+    }

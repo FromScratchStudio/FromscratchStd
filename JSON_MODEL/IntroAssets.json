@@ -1,0 +1,228 @@
+{
+    "Assets":
+    [  
+        
+    {
+                  "AssetId" : "IMG_COVER",               
+                  "AssetType" : "IMG_ASSET",             
+                  "Path" :"img/gallery/AnimPics/RouePattern.jpg"         
+    },
+         
+    {             
+        "AssetId" : "IMG_1",             
+        "AssetType" : "IMG_ASSET",             
+        "Path" : "img/gallery/AnimPics/StreetFire.png"         
+    },
+         
+    {             
+        "AssetId" : "IMG_1",            
+        "AssetType" : "IMG_ASSET",             
+        "Path" : "img/gallery/AnimPics/visagevide.png"         
+    },
+        
+    {             
+        "AssetId" : "IMG_1",            
+        "AssetType" : "IMG_ASSET",             
+        "Path" : "img/gallery/AnimPics/Motif.jpg"         
+    },
+        
+    {             
+        "AssetId" : "IMG_1",             
+        "AssetType" : "IMG_ASSET",             
+        "Path" : "img/gallery/AnimPics/RouePattern.jpg"         
+    },
+          
+    {             
+        "AssetId" : "IMG_1",             
+        "AssetType" : "IMG_ASSET",             
+        "Path" : "img/gallery/AnimPics/casquetteBoyColoBLur.png"         
+    },
+
+    {             
+        "AssetId" : "IMG_1",             
+        "AssetType" : "IMG_ASSET",             
+        "Path" : "img/gallery/AnimPics/thePimpologist/luisPimpo.PNG"         
+    },
+    {             
+        "AssetId" : "IMG_1",             
+        "AssetType" : "IMG_ASSET",             
+        "Path" : "img/gallery/AnimPics/thePimpologist/moxo.JPG"         
+    },
+    {             
+        "AssetId" : "IMG_1",             
+        "AssetType" : "IMG_ASSET",             
+        "Path" : "img/gallery/AnimPics/thePimpologist/mrmoula.PNG"         
+    },
+        
+    {             
+        "AssetId" : "IMG_1",             
+        "AssetType" : "IMG_ASSET",             
+        "Path" : "img/gallery/AnimPics/thePimpologist/mrmoula2.jpg"         
+    },
+
+    {             
+        "AssetId" : "IMG_1",             "AssetType" : "IMG_ASSET",             "Path" : "img/gallery/AnimPics/welcom.png"         },
+        
+        
+    {             
+        "AssetId" : "IMG_1",             "AssetType" : "IMG_ASSET",             "Path" : "img/gallery/AnimPics/DeadManWalk8.png"         },
+        
+        
+    {             
+        "AssetId" : "IMG_1",             "AssetType" : "IMG_ASSET",             "Path" : "img/gallery/AnimPics/fluo.png"         },
+        
+        
+    {             
+        "AssetId" : "IMG_1",             "AssetType" : "IMG_ASSET",             "Path" : "img/gallery/AnimPics/fluo2.png"         },
+        
+        
+    {             
+        "AssetId" : "IMG_1",             "AssetType" : "IMG_ASSET",             "Path" : "img/gallery/AnimPics/fluo3.png"         },
+        
+        
+    {            
+        "AssetId" : "IMG_1",             "AssetType" : "IMG_ASSET",             "Path" : "img/gallery/AnimPics/KingDomCom3.png"         },
+        
+        
+    {             
+        "AssetId" : "IMG_1",             "AssetType" : "IMG_ASSET",             "Path" : "img/gallery/AnimPics/jpegs/3Inu.jpg"         },
+        
+        
+    {             
+        "AssetId" : "IMG_1",             "AssetType" : "IMG_ASSET",             "Path" : "img/gallery/AnimPics/jpegs/bleu.jpg"         },
+        
+        
+{             "AssetId" : "IMG_1",             "AssetType" : "IMG_ASSET",             "Path" : "img/gallery/AnimPics/jpegs/car.jpg"         },
+        
+        
+{             "AssetId" : "IMG_1",             "AssetType" : "IMG_ASSET",             "Path" : "img/gallery/AnimPics/jpegs/casquetteBoyColoBLur.jpg"         },
+        
+        
+{             "AssetId" : "IMG_1",             "AssetType" : "IMG_ASSET",             "Path" : "img/gallery/AnimPics/jpegs/DeadManWalk8.jpg"         },
+        
+        
+{             "AssetId" : "IMG_1",             "AssetType" : "IMG_ASSET",             "Path" : "img/gallery/AnimPics/jpegs/etudePersonnageTrash3.jpg"         },
+        
+        
+{             "AssetId" : "IMG_1",             "AssetType" : "IMG_ASSET",             "Path" : "img/gallery/AnimPics/jpegs/draftSketch2.jpg"         },
+        
+        
+{             "AssetId" : "IMG_1",             "AssetType" : "IMG_ASSET",             "Path" : "img/gallery/AnimPics/StreetFire.png"         },
+        
+        
+{             "AssetId" : "IMG_1",             "AssetType" : "IMG_ASSET",             "Path" : "img/gallery/AnimPics/jpegs/etudePaysage1.jpg"         },
+        
+        
+{             "AssetId" : "IMG_1",             "AssetType" : "IMG_ASSET",             "Path" : "img/gallery/AnimPics/jpegs/etudePersonnageTrash2.jpg"         },
+        
+        
+{             "AssetId" : "IMG_1",             "AssetType" : "IMG_ASSET",             "Path" : "img/gallery/AnimPics/visagevide.png"         },
+        
+        
+{             "AssetId" : "IMG_1",             "AssetType" : "IMG_ASSET",             "Path" : "img/gallery/AnimPics/jpegs/etudePersonnageTrash4.jpg"         },
+        
+        
+{             "AssetId" : "IMG_1",             "AssetType" : "IMG_ASSET",             "Path" : "img/gallery/AnimPics/jpegs/fluo.jpg"         },
+        
+        
+{             "AssetId" : "IMG_1",             "AssetType" : "IMG_ASSET",             "Path" : "img/gallery/AnimPics/jpegs/etudePersonnageTrash.jpg"         },
+        
+        
+        
+{             "AssetId" : "IMG_1",             "AssetType" : "IMG_ASSET",             "Path" : "img/gallery/AnimPics/jpegs/fluo2.jpg"         },
+        
+        
+{             "AssetId" : "IMG_1",             "AssetType" : "IMG_ASSET",             "Path" : "img/gallery/AnimPics/jpegs/etudePaysage.jpg"         },
+        
+        
+{             "AssetId" : "IMG_1",             "AssetType" : "IMG_ASSET",             "Path" : "img/gallery/AnimPics/jpegs/Robot_paintCrop_effect8.jpg"         },
+        
+        
+{             "AssetId" : "IMG_1",             "AssetType" : "IMG_ASSET",             "Path" : "img/gallery/AnimPics/jpegs/fluo3.jpg"         },
+        
+        
+{             "AssetId" : "IMG_1",             "AssetType" : "IMG_ASSET",             "Path" : "img/gallery/AnimPics/jpegs/draftSketch.jpg"         },
+        
+        
+{             "AssetId" : "IMG_1",             "AssetType" : "IMG_ASSET",             "Path" : "img/gallery/AnimPics/jpegs/KingDomCom.jpg"         },
+        
+        
+{             "AssetId" : "IMG_1",             "AssetType" : "IMG_ASSET",             "Path" : "img/gallery/AnimPics/jpegs/streetFluo.jpg"         },
+        
+        
+{             "AssetId" : "IMG_1",             "AssetType" : "IMG_ASSET",             "Path" : "img/gallery/AnimPics/jpegs/Robot_paintCrop_effect6.jpg"         },
+        
+        
+{             "AssetId" : "IMG_1",             "AssetType" : "IMG_ASSET",             "Path" : "img/gallery/AnimPics/jpegs/moradColo16.jpg"         },
+        
+        
+{             "AssetId" : "IMG_1",             "AssetType" : "IMG_ASSET",             "Path" : "img/gallery/AnimPics/jpegs/Motif.jpg"         },
+        
+        
+{             "AssetId" : "IMG_1",             "AssetType" : "IMG_ASSET",             "Path" : "img/gallery/AnimPics/jpegs/PurAbstract.jpg"         },
+        
+        
+{             "AssetId" : "IMG_1",             "AssetType" : "IMG_ASSET",             "Path" : "img/gallery/AnimPics/jpegs/welcom.jpg"         },
+        
+        
+{             "AssetId" : "IMG_1",             "AssetType" : "IMG_ASSET",             "Path" : "img/gallery/AnimPics/jpegs/RedTask.jpg"         },
+        
+        
+{             "AssetId" : "IMG_1",             "AssetType" : "IMG_ASSET",             "Path" : "img/gallery/AnimPics/jpegs/Reporter.jpg"         },
+        
+        
+{             "AssetId" : "IMG_1",             "AssetType" : "IMG_ASSET",             "Path" : "img/gallery/AnimPics/jpegs/Robot_paintCrop1.jpg"         },
+        
+        
+{             "AssetId" : "IMG_1",             "AssetType" : "IMG_ASSET",             "Path" : "img/gallery/AnimPics/jpegs/Robot_paintCrop_effect5.jpg"         },
+        
+        
+{             "AssetId" : "IMG_1",             "AssetType" : "IMG_ASSET",             "Path" : "img/gallery/AnimPics/jpegs/Robot_paintCrop_effect9.jpg"         },
+        
+        
+{             "AssetId" : "IMG_1",             "AssetType" : "IMG_ASSET",             "Path" : "img/gallery/AnimPics/jpegs/RouePattern.jpg"         },
+        
+        
+{             "AssetId" : "IMG_1",             "AssetType" : "IMG_ASSET",             "Path" : "img/gallery/AnimPics/jpegs/SarahTatoo.jpg"         },
+        
+        
+{             "AssetId" : "IMG_1",             "AssetType" : "IMG_ASSET",             "Path" : "img/gallery/AnimPics/jpegs/Robot_paintCrop_effect7.jpg"         },
+        
+        
+{             "AssetId" : "IMG_1",             "AssetType" : "IMG_ASSET",             "Path" : "img/gallery/AnimPics/jpegs/StreetFire.jpg"         },
+        
+        
+{             "AssetId" : "IMG_1",             "AssetType" : "IMG_ASSET",             "Path" : "img/gallery/AnimPics/jpegs/SunnyStreet.jpg"         },
+        
+        
+{             "AssetId" : "IMG_1",             "AssetType" : "IMG_ASSET",             "Path" : "img/gallery/AnimPics/jpegs/streetFluo2.jpg"         },
+        
+        
+{             "AssetId" : "IMG_1",             "AssetType" : "IMG_ASSET",             "Path" : "img/gallery/AnimPics/jpegs/streetFluo3.jpg"         },
+        
+        
+{             "AssetId" : "IMG_1",             "AssetType" : "IMG_ASSET",             "Path" : "img/gallery/AnimPics/jpegs/Throw.jpg"         },
+        
+        
+{             "AssetId" : "IMG_1",             "AssetType" : "IMG_ASSET",             "Path" : "img/gallery/AnimPics/jpegs/tableau_color.jpg"         },
+        
+        
+{             "AssetId" : "IMG_1",             "AssetType" : "IMG_ASSET",             "Path" : "img/gallery/AnimPics/jpegs/visageCrop3.jpg"         },
+        
+        
+{             "AssetId" : "IMG_1",             "AssetType" : "IMG_ASSET",             "Path" : "img/gallery/AnimPics/jpegs/testrabot2.jpg"         },
+        
+        
+{             "AssetId" : "IMG_1",             "AssetType" : "IMG_ASSET",             "Path" : "img/gallery/AnimPics/jpegs/testrabot3.jpg"         },
+        
+        
+{             "AssetId" : "IMG_1",             "AssetType" : "IMG_ASSET",             "Path" : "img/gallery/AnimPics/jpegs/visagevide.jpg"         },
+        
+        
+{             "AssetId" : "IMG_1",             "AssetType" : "IMG_ASSET",             "Path" : "img/gallery/AnimPics/jpegs/yelloRobot.jpg"         },
+        
+        
+{             "AssetId" : "IMG_1",             "AssetType" : "IMG_ASSET",             "Path" : "img/gallery/AnimPics/jpegs/moradColo16.jpg"         }
+        
+    ]
+}

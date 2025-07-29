@@ -1,0 +1,1387 @@
+<html>
+<head>
+    <link rel="shortcut icon" type="image/x-icon" href="img/logos/fromScratchStudio-transparent-final.png" />
+    <link href='http://fonts.googleapis.com/css?family=Gruppo&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link href='style/intro.css' rel="stylesheet" type='text/css'>
+    <link href='style/circles.css' rel="stylesheet" type='text/css'>
+    <title>FromScratch Studio...</title>
+</head>
+<script type="text/javascript" src="js/jquery-2.1.3.js"></script>
+<script type="text/javascript" src="js/ajaxManager.js"></script> 
+<script type="text/javascript" src="js/DisplayController.js"></script>
+    
+<style>
+#triangleLeft {
+    position:absolute;
+    top:50%;
+    left:50%;
+    margin-top: -200px;
+	width: 0;
+	height: 0;
+	border-top: 100px solid red;
+	border-right: 300px solid transparent;
+	border-bottom: 100px solid transparent;
+    border-left: 0px solid red;
+}
+    
+#hiddenLoadContainer
+{
+    position: fixed;
+    top:-30000px;
+    left: -30000px;
+}
+    
+.assetLoader
+{   
+    clear:both;
+	position:absolute;
+	left:0px;
+    top:0px;
+    /*margin-left:-50%;
+	margin-top: -25%;*//*-250px;*/
+	width:100%;
+	height: 100%;/*500px;*/
+    z-index: 2000;
+    background-color: black;
+    opacity: 0.7;
+}
+
+.assetLoader img
+{   
+    clear:both;
+	position:relative;
+	left:50%;
+    margin-left: -60px;
+    top:50%;
+    margin-top: -60px;
+    /*margin-left:-50%;
+	margin-top: -25%;*//*-250px;*/
+	width:120px;
+	height: 120px;
+    z-index: 2000;
+    background-color: white;
+    opacity: 0.6;
+    border-radius: 50%;
+}
+    
+    #leftMenuBar
+    {
+        position:fixed;
+        top:15px;
+        left:15px;
+        border: 1px solid #dedede;
+	    border-radius: 4px;
+	    box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.055);
+	    color: #888;
+	    display: block;
+        margin: 8px 22px 8px 22px;
+        overflow:visible;
+        width: 250px; 
+        }
+    
+    div.NAV_BAR
+    {
+        clear: both;
+        width: 250px; 
+        height:230px;
+        position:absolute;
+        top:45%;
+        left:0px;
+        margin-top: -115px;
+        /*border: 1px solid pink;*/
+	    border-radius: 4px;
+	    box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.055);
+	    color: #888;
+	    display: block;
+        margin: 8px 22px 8px 22px;
+        overflow:visible;
+        list-style-type: none;
+        z-index: 1000;
+        /*display: none;*/
+    }
+    
+    div.NAV_BAR > ul > li
+    {
+        list-style-type: none;
+    }
+    
+    .MENU_ITEM
+    {
+        clear: both;
+        position: absolute;
+        left:0px;
+        width:40px;
+        text-decoration: none;
+        margin-bottom: 5px;
+    }
+    
+    .MENU_ITEM:hover > div
+    {
+        display: block; 
+    }
+    
+    .DIV_NAV_LEFT
+    {
+        position: absolute;
+        left:0px;
+        width:40px;
+        height: 40px;
+        background-color: black;
+        border:solid 2px #585858;
+        border-radius: 50%;
+        color:white;
+    }
+    
+    .DIV_NAV_LEFT:hover
+    {
+        position: absolute;
+        left:0px;
+        width:40px;
+        height: 40px;
+        margin-bottom: 5px;
+        border:solid 2px white;
+    }
+    
+    .DIV_NAV_LEFT:hover .DIV_NAV_RIGHT
+    {
+        display: block;
+        font-weight: 750;
+        text-decoration:underline;
+        /*text-decoration-color: white;*/
+        -webkit-transition: opacity 0.2s;
+        -moz-transition: opacity 0.2s;
+        -ms-transition: opacity 0.2s;
+        -o-transition: opacity 0.2s;
+        -transition: opacity 0.2s;
+    }
+    
+    .DIV_NAV_RIGHT
+    {
+        position: absolute;
+        left:40px;
+        width:188px;
+        display: none;
+    }
+    
+    .DIV_NAV_RIGHT_ITEM
+    {
+        position: absolute;
+        left: 5px;
+        width:188px;
+        height: 40px;
+        /*background-color: black;*/
+        color:white;
+        text-decoration: none;
+    }
+    
+    .DIV_NAV_RIGHT_ITEM:hover
+    {
+        /*background-color:black;*/
+        text-decoration: underline;
+        font-weight: 750;
+        -webkit-transition: opacity 0.2s;
+        -moz-transition: opacity 0.2s;
+        -ms-transition: opacity 0.2s;
+        -o-transition: opacity 0.2s;
+        -transition: opacity 0.2s;
+    }
+    
+    /****************/
+    
+   .BTN_IMG_CIRCLE
+    {
+        position: absolute;
+        top:50%;
+        left:50%;
+        margin-top: -50%;
+        margin-left: -50%;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+		/*border:solid 1px white;*/
+    }
+    
+    
+    /**Dispatched Menu*/
+    .PART_VIEW
+    {
+        z-index:100;
+        color:white;
+		height:100%;
+		overflow-y:visible;
+    }
+    
+    .SECTION_VIEW
+    {
+		height:100%;
+		overflow-y: scroll;
+	}
+    
+    
+    #whoWeAreContainer_FR
+    {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+	
+	#whoWeAreContainer_EN
+    {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+    
+    #menuWho_FR
+    {
+        position: absolute;
+        top:70px;
+        left:65%;
+        width:35%;
+        height: 30px;
+        background-color: black;
+        opacity: 0.6;   
+    }
+    
+    #menuWho_FR > ul
+    {
+        position: absolute;
+        top:0px;
+    }
+    
+    #menuWho_FR > ul > li
+    {
+        margin:0 15 0 15;
+    }
+    
+    #menuWho_FR > ul > li:hover
+    {
+        text-decoration: underline;
+    }
+    
+    #menuWho_FR > ul > li:active
+    {
+        text-decoration: underline;
+    }
+	
+	
+	
+	#menuWho_EN
+    {
+        position: absolute;
+        top:70px;
+        left:65%;
+        width:35%;
+        height: 30px;
+        background-color: black;
+        opacity: 0.6;   
+    }
+    
+    #menuWho_EN > ul
+    {
+        position: absolute;
+        top:0px;
+    }
+    
+    #menuWho_EN > ul > li
+    {
+        margin:0 15 0 15;
+    }
+    
+    #menuWho_EN > ul > li:hover
+    {
+        text-decoration: underline;
+    }
+    
+    #menuWho_EN > ul > li:active
+    {
+        text-decoration: underline;
+    }
+	
+	
+    
+    #illustrationWho
+    {
+        position: absolute;
+        top:0px;
+        left:80px;
+        background-color:black;
+        width: 400px;
+        height: 100%;
+        opacity: 0.8;
+    }
+    
+    #illustrationWhoImg
+    {
+        position: absolute;
+        top:0px;
+        left:0px;
+        width: 100%;;
+        height: 100%;
+    }
+    
+    #philosophyWho_FR
+    {
+        position: absolute;
+        top:110px;
+        left:500px;
+        width:auto;
+        height: 80%;
+        background-color: black;
+        opacity: 0.6;
+    }
+    
+    #presentationWho_FR
+    {
+        position: absolute;
+        top:110px;
+        left:500px;
+        width:auto;
+        height: 80%;
+        background-color: black;
+        opacity: 0.6;
+    }
+    
+    #fssContainer_FR
+    {
+    
+    }
+    
+    #fsdContainer_FR
+    {}
+    
+    #fsrContainer_FR
+    {}
+    
+    #fspContainer_FR
+    {}
+    
+	
+	
+	
+	#philosophyWho_EN
+    {
+        position: absolute;
+        top:110px;
+        left:500px;
+        width:auto;
+        height: 80%;
+        background-color: black;
+        opacity: 0.6;
+    }
+    
+    #presentationWho_EN
+    {
+        position: absolute;
+        top:110px;
+        left:500px;
+        width:auto;
+        height: 80%;
+        background-color: black;
+        opacity: 0.6;
+    }
+    
+    #fssContainer_EN
+    {
+    
+    }
+    
+    #fsdContainer_EN
+    {}
+    
+    #fsrContainer_EN
+    {}
+    
+    #fspContainer_EN
+    {}
+	
+	.FR
+	{}
+	
+	.EN{}
+	
+	
+	.TEAM_PIC
+	{
+		width:120px;
+		height:160px;
+		opacity: 1;
+	}
+	
+	#fssLang
+	{
+		position:absolute;
+		top:15px;
+		left:30px;
+		width:80px;
+		height:40px;
+		z-index: 100000000000;
+	}
+	
+	.FLAG
+	{
+		position:relative;
+		/*top:0px;
+		left:0px;*/
+		/*width:160px;
+		height:60px;*/
+	}
+	
+	#frLangImg {  opacity: 0.6;  }
+	
+	#enLangImg {  opacity: 0.6;  }
+	
+	
+	#frLangImg:hover {  opacity: 1;  }
+	
+	#enLangImg:hover {  opacity: 1;  }
+	
+	
+</style>
+
+<body>
+    
+<div id="fssLang" style="display:visible;">
+        <img id="frLangImg" class="FLAG" style="display:none;" src="img/icons/frLang.png" onclick="ChangeSiteLanguage(CST_FR);"/>
+        <img id="enLangImg" class="FLAG" src="img/icons/enLang.gif" onclick="ChangeSiteLanguage(CST_EN);"/>
+</div>
+    
+<div id="fssTitle">FromScratch Creative Studio</div>
+    
+<div id="introContainer" class="PART_VIEW" style="display:block">
+    
+    <img id="fromScratchBg" src="img/fromscratchStudioIntro8.jpg"/>
+    
+    <div id="moncercle">
+        <img id="cerclePic" src="img/gallery/WhitePaperCovers/RouePattern.jpg"/> 
+        <div id="moncercleIn">
+            <img id="fromScratchCover" src="img/logos/fromScratchStudioFinal.png"/>
+            <div id="enterSiteDiv"><a><!--Welcome! Enter Coming soon...--></a></div>
+        </div>
+    </div>
+    
+        
+        
+    <div id="moncercleNO">
+        <img id="cerclePicNO" src="img/gallery/WhitePaperCovers/RouePattern.jpg"/> 
+        <div id="moncercleInNO">
+            <img id="fromScratchCoverNO" src="img/logos/FromScratchPictures-WhireBGSimple.png"/>
+        </div>
+    </div>
+    
+    <div id="moncercleSO">
+        <img id="cerclePicSO" src="img/gallery/WhitePaperCovers/RouePattern.jpg"/> 
+        <div id="moncercleInSO">
+            <img id="fromScratchCoverSO" src="img/logos/fromScratchRecords-whiteBG-final.png"/>
+        </div>
+    </div>
+    
+    
+
+    
+    
+    
+    <!-- Alternate way to display menu -->
+    <!--
+    <div id="fssStudioMenu" style="height:38px;">
+        <div class="SECTION_NAV">FromScratch Studio...</div>
+        <div class="DIV_NAV_RIGHT" style="height:38px;">
+            <ul>
+                <li><div class="DIV_NAV_RIGHT_ITEM" style="top:0px;">FromScratch Pictures...</div></li>
+                <li><div class="DIV_NAV_RIGHT_ITEM" style="top:45px;">A...</div></li>
+                <li><div class="DIV_NAV_RIGHT_ITEM" style="top:90px;">B...</div></li>
+            </ul>
+        </div>
+    </div>-->
+    
+    <center><div id="trackInfoDiv"><p>FromScratch Creative Studio</p></div></center> 
+    <center><div id="muteDiv" onclick="muteIntro();"><img id="muteImg" src="img/logos/unmute.jpg"/></div></center> 
+</div>
+    
+    
+    <div class="NAV_BAR">
+        <ul>
+            
+            <li>
+                <div class="MENU_ITEM" style="top:0px;">
+                    <div class="DIV_NAV_LEFT" onclick="SwitchView('whoWeAreContainer');"><img class="BTN_IMG_CIRCLE" src="img/logos/fssWhoWeAre.jpg" /></div>
+                    <div class="DIV_NAV_RIGHT" style="height:38px;">
+                        <ul>
+                            <li><div class="DIV_NAV_RIGHT_ITEM" style="top:0px;" onclick="SwitchView('whoWeAreContainer');">Who We Are...</div></li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+            
+            <li>
+                <div class="MENU_ITEM" style="top:45px;">
+                    <div class="DIV_NAV_LEFT" onclick="SwitchView('fssContainer');"><img class="BTN_IMG_CIRCLE" src="img/logos/fromScratchStudioFinal.png" /></div>
+                    <div class="DIV_NAV_RIGHT" style="height:38px;">
+                        <ul>
+                            <li><div class="DIV_NAV_RIGHT_ITEM" style="top:0px;" onclick="SwitchView('fssContainer');">FromScratch Studio...</div></li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+            
+            <li>
+                <div class="MENU_ITEM" style="top:90px;">
+                    <div class="DIV_NAV_LEFT" onclick="SwitchView('fsdContainer');"><img class="BTN_IMG_CIRCLE" src="img/logos/FromScratchDev.jpg" /></div>
+                    <div class="DIV_NAV_RIGHT" style="height:38px;">
+                        <ul>
+                            <li><div class="DIV_NAV_RIGHT_ITEM" style="top:0px;" onclick="SwitchView('fsdContainer');">FromScratch Devs...</div></li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+            
+            <li>
+                <div class="MENU_ITEM" style="top:135px;">
+                    <div class="DIV_NAV_LEFT" onclick="SwitchView('fsrContainer');"><img class="BTN_IMG_CIRCLE" src="img/logos/fromScratchRecords-whiteBG-final.png" /></div>
+                    <div class="DIV_NAV_RIGHT" style="height:38px;">
+                        <ul>
+                            <li><div class="DIV_NAV_RIGHT_ITEM" style="top:0px;" onclick="SwitchView('fsrContainer');">FromScratch Records...</div></li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+            
+            <li>
+                <div class="MENU_ITEM" style="top:180px;">
+                    <div class="DIV_NAV_LEFT" onclick="SwitchView('fspContainer');"><img class="BTN_IMG_CIRCLE" src="img/logos/FromScratchPictures-WhireBGSimple.png" /></div>
+                    <div class="DIV_NAV_RIGHT" style="height:38px;">
+                        <ul>
+                            <li><div class="DIV_NAV_RIGHT_ITEM" style="top:0px;" onclick="SwitchView('fspContainer');">FromScratch Pictures...</div></li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+            
+
+            
+            <li>
+                <div class="MENU_ITEM" style="top:225px;">
+                    <div class="DIV_NAV_LEFT"><img class="BTN_IMG_CIRCLE" src="img/logos/logocontact.jpg" /></div>
+                    <div class="DIV_NAV_RIGHT" style="height:38px;">
+                        <ul>
+                            <li><div class="DIV_NAV_RIGHT_ITEM" style="top:0px;">Contact Us</div></li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+            
+        </ul>
+    
+    </div>
+    
+    
+    
+    <!-- Who We Are Part - FR-->
+    <div id="whoWeAreContainer_FR" class="PART_VIEW FR" style="display:none;">
+    
+    <img id="fromScratchBg2" src="img/fromscratchStudioIntro8.jpg"/>
+        
+        
+    <div class="MENU_ITEM" style="position:fixed;top:50px;left:21px;z-index:1005">
+                    <div class="DIV_NAV_LEFT" onclick="SwitchView('introContainer');"><img class="BTN_IMG_CIRCLE" src="img/logos/homeBtn.png" /></div>
+                    <div class="DIV_NAV_RIGHT" style="height:38px;">
+                        <ul>
+                            <li style="list-style-type:none;display"><div class="DIV_NAV_RIGHT_ITEM" style="top:0px;" onclick="SwitchView('introContainer');">Home</div></li>
+                        </ul>
+                    </div>
+                </div>
+        
+    <!--<div id="illustrationWho">
+        <img id="illustrationWhoImg" src="img/illustrationTmp.jpg" />
+    </div>-->
+        
+    <nav id="menuWho_FR" class="FR">
+                <ul>
+                    <li style="list-style-type:none;display: inline-block;"><div onclick="SwitchSection('philosophyWho');">A propos</div></li>
+                    <li style="list-style-type:none;display: inline-block;"><div onclick="SwitchSection('presentationWho');">La Team</div></li>
+                </ul>
+    </nav>
+		
+	<nav id="menuWho_EN" class="EN" style="display:none;">
+                <ul>
+                    <li style="list-style-type:none;display: inline-block;"><div onclick="SwitchSection('philosophyWho');">About</div></li>
+                    <li style="list-style-type:none;display: inline-block;"><div onclick="SwitchSection('presentationWho');">The Team</div></li>
+                </ul>
+    </nav>
+		
+	<div id="philosophyWho_FR" class="SECTION_VIEW FR">
+
+        <p style="padding:0 15 0 15">Notre Concept...</p>
+        <p style="padding:0 15 0 15">
+            <strong>FromScratch Creative Studio</strong> est un studio créatif digital, un collectif de créatifs passionn&eacute;s.<br>
+            <strong>Il s'agit d'un club ouvert à tous les esprits créatifs désireux de mutualiser leurs efforts, échanger et partager leur savoirs-faire complémentaires.<br>
+            Que ce soit dans le domaine des arts graphiques, du design, des multimédias ou encore des nouvelles technologies, notre ambition est de réaliser, de manière collaborative, des projets riches et variés.    
+        </p>
+        <p style="padding:0 15 0 15">Notre philosophie est qu'avec de la créativité tout est possible, et que FromScratch nous pouvons r&eacute;aliser les plus belles choses.</p>
+        <p style="padding:0 15 0 15">L'imagination est la clé.</p>
+        
+        <p style="padding:0 15 0 15">
+            Nous organisons nos projets selon differentes catégories:
+        </p>
+        
+        <div style="padding:0 10 0 10;">
+            <ul>
+                <li><b style="text-decoration:underline;">FromScratch Studio</b> <br>Activités graphiques: Illustrations, Design, Bandes dessinées,...</li>
+                <li style="list-style-type:none">&nbsp;</li>
+                <li><b style="text-decoration:underline;">FromScratch Dev</b><br>Développement d'Application: Apps mobiles, Web, Composants,...</li>
+                <li style="list-style-type:none">&nbsp;</li>
+                <li><b style="text-decoration:underline;">FromScratch Records</b><br>Sound Design, Beat making, Soundtracks,...</li>
+                <li style="list-style-type:none">&nbsp;</li>
+                <li><b style="text-decoration:underline;">FromScratch Pictures</b><br>Activités Photos, Vidéos et Animation 2D..</li>
+            </ul>
+        </div>
+		
+		<p style="padding:0 15 0 15">Si vous aussi vous êtes créatifs et porteur de projets, vous pouvez nous rejoindre dans notre démarches et avancer ensemble.</p>
+		<p style="padding:0 15 0 15">Pour cela n'hésitez pas à nous contacter.</p>
+    </div>
+		
+        
+    <div id="presentationWho_FR" class="SECTION_VIEW FR" style="display:none;">
+
+        <p style="padding:0 15 0 15">Qui nous sommes...</p>
+        <p style="padding:0 15 0 15">
+            <strong>FromScratch Creative Studio</strong> est un collectif de créatfs passionnés.<br>
+        </p>
+        <p style="padding:0 15 0 15">NOS MEMBRES:</p>
+		
+		<p>
+		<div style="padding:0 10 0 10;color:white;">
+            <ul style="">
+                <li style="list-style-type:none">
+					<table width="100%;" height="80px"; style="color:white;">
+						<tr width="100%;" height="80px;">
+							<td width="20%;" height="80px;"> <img class="TEAM_PIC" src="img/Team/Noah.jpg"/></td>
+							<td width="2%;" height="80px;"></td>
+							<td width="78%;" height="80px;" style="color:white;">
+							<p>
+								<strong><u>Noah Cham</u></strong> <br>
+								Auteur, scénariste et illustrateur autodidacte.<br>
+								Il est l'un des fondateur du FromScratch (Creative) Studio.
+								Il travaille actuellement sur un projet de Web Comic en ligne, disponible très prochainement: LEGACY.<br>
+								Il tire son inspiration de diverses influences: manga, cultures urbaines, jazz et littérature...
+							</p>
+							</td>
+						</tr>
+					</table>
+				
+				</li>
+				
+                <li style="list-style-type:none">&nbsp;</li>
+				
+				<li style="list-style-type:none">
+					<table width="100%;" height="80px"; style="color:white;">
+						<tr width="100%;" height="80px;">
+							<td width="20%;" height="80px;"> <img class="TEAM_PIC" src="img/Team/MoradA.jpg"/></td>
+							<td width="2%;" height="80px;"></td>
+							<td width="78%;" height="80px;" style="color:white;">
+							<p>
+								<strong><u>Morad A.</u></strong> <br>
+								Développeur et dessinateur au sein du FromScratch Studio.<br>
+								Il est l'un des deux membres à l'origine du FromScratch Studio.
+								Actuellement il assiste Noah Cham sur son projet de Web Comic en ligne, LEGACY, et ce en tant qu'illustrateur et développeur du site web.<br>
+								Il est ainsi développeur et référent technique sur tout ce qui concerne les développements web et mobiles.
+							</p>
+							</td>
+						</tr>
+					</table>
+				
+				</li>
+				
+                <li style="list-style-type:none">&nbsp;</li>
+				
+				<li style="list-style-type:none">
+					<table width="100%;" height="80px;">
+						<tr width="100%;" height="80px;">
+							<td width="20%;" height="80px;"> <img class="TEAM_PIC" src="img/Team/3INU.jpg"/></td>
+							<td width="2%;" height="80px;"></td>
+							<td width="78%;" height="80px;" style="color:white;">
+							<p>
+								<strong><u>3Inu</u></strong> <br>
+								Beat maker &amp; et Sound designer passionné. <br>
+								Son univers musical est très éclectique, mêlant Soul musique, Hip-hop tout en y apportant une touche éléctro.<br>
+								Il a déjà produits quelques instrumentaux dans un style hip hop électro pour le collectif. <br>
+								Actuellement sur un projet musical (White Paper) au sein du FromScratch Studio ainsi que producteur de certains titres sur la soundtrack du projet LEGACY de Noah Cham. 
+							</p>
+							</td>
+						</tr>
+					</table>
+				
+				</li>
+				
+                <li style="list-style-type:none">&nbsp;</li>
+				
+				<li style="list-style-type:none">
+					<table width="100%;" height="80px;">
+						<tr width="100%;" height="80px;">
+							<td width="20%;" height="80px;"> <img class="TEAM_PIC" src="img/Team/DanDan.jpg"/></td>
+							<td width="2%;" height="80px;"></td>
+							<td width="78%;" height="80px;" style="color:white;">
+							<p>
+								<strong><u>Dan-Dan</u></strong><br>
+								Photographe au sein du collectif.<br>
+								Il participe volontier aux différents projets du groupe lorsqu'on le sollicite.<br>
+								Il a sa propre activité en tant qu'artiste-photographe mais c'est toujours avec beaucoup d'intérêt et de sens du conseil qu'il accompagne les différents projets des membres du "club" FromScratch Studio.
+								
+							</p>
+							</td>
+						</tr>
+					</table>
+				
+				</li>
+				
+                <li style="list-style-type:none">&nbsp;</li>
+				
+				<li style="list-style-type:none">
+					<table width="100%;" height="80px;">
+						<tr width="100%;" height="80px;">
+							<td width="20%;" height="80px;"> <img class="TEAM_PIC" src="img/Team/Pseudo.jpg"/></td>
+							<td width="2%;" height="80px;"></td>
+							<td width="78%;" height="80px;" style="color:white;">
+							<p>
+								<strong><u>Pseudo</u></strong> <br>
+								L'électron libre.<br>
+								Touche à tout, il est avant tout lyriciste, poète et graffiti artiste!<br>
+								Il nous accompagne et intervient au sein du collectif tel un journaliste apportant son regard averti, captant les inspirations du moment.<br>
+								D'une aide précieuse sur les projets graphiques, il n'hésite pas à prêter sa voix et ses textes dans certains de nos projets musicaux.<br>
+							</p>
+							</td>
+						</tr>
+					</table>
+				
+				</li>
+				
+                <li style="list-style-type:none">&nbsp;</li>
+				
+            </ul>
+        </div>
+		</p>
+		
+		
+		
+		
+        <!--<p style="padding:0 15 0 15">Notre philosophie est que tout est possible, et que FromScratch nous pouvons realiser les plus belles choses.</p>
+        <p style="padding:0 15 0 15">L'imagination est la cle.</p>
+        <p style="padding:0 15 0 15">La creativite en est la voie.</p>
+        <p style="padding:0 15 0 15">Avec le succes pour destination. </p>
+        
+        <p style="padding:0 15 0 15">
+            Nous organisons nos activites et projets selon differentes categories:
+        </p>
+        
+        <div style="padding:0 10 0 10">
+            <ul>
+                <li><b style="text-decoration:underline;">FromScratch Studio</b> <br>Activites graphiques: Illustrations, Design, Bandes dessinees,...</li>
+                <li style="list-style-type:none">&nbsp;</li>
+                <li><b style="text-decoration:underline;">FromScratch Dev</b><br>Developpement d'Application: Apps mobiles, Web, Composants,...</li>
+                <li style="list-style-type:none">&nbsp;</li>
+                <li><b style="text-decoration:underline;">FromScratch Records</b><br>Sound Design, Beat making...</li>
+                <li style="list-style-type:none">&nbsp;</li>
+                <li><b style="text-decoration:underline;">FromScratch Pictures</b><br>Activites Photos, Videos et Animation 2D..</li>
+            </ul>
+        </div>
+        -->
+    </div>
+    </div>
+	
+	
+	
+	<!-- Who We Are Part - EN-->
+    <div id="whoWeAreContainer_EN" class="PART_VIEW EN" style="display:none;">
+    
+    <img id="fromScratchBg2" src="img/fromscratchStudioIntro8.jpg"/>
+        
+        
+    <div class="MENU_ITEM" style="position:fixed;top:50px;left:21px;z-index:1005">
+                    <div class="DIV_NAV_LEFT" onclick="SwitchView('introContainer');"><img class="BTN_IMG_CIRCLE" src="img/logos/homeBtn.png" /></div>
+                    <div class="DIV_NAV_RIGHT" style="height:38px;">
+                        <ul>
+                            <li style="list-style-type:none;display"><div class="DIV_NAV_RIGHT_ITEM" style="top:0px;" onclick="SwitchView('introContainer');">Home</div></li>
+                        </ul>
+                    </div>
+                </div>
+        
+    <!--<div id="illustrationWho">
+        <img id="illustrationWhoImg" src="img/illustrationTmp.jpg" />
+    </div>-->
+        
+    <nav id="menuWho_FR" class="FR" style="display:none;">
+                <ul>
+                    <li style="list-style-type:none;display: inline-block;"><div onclick="SwitchSection('philosophyWho');">A propos</div></li>
+                    <li style="list-style-type:none;display: inline-block;"><div onclick="SwitchSection('presentationWho');">La Team</div></li>
+                </ul>
+    </nav>
+		
+	<nav id="menuWho_EN" class="EN">
+                <ul>
+                    <li style="list-style-type:none;display: inline-block;"><div onclick="SwitchSection('philosophyWho');">About</div></li>
+                    <li style="list-style-type:none;display: inline-block;"><div onclick="SwitchSection('presentationWho');">The Team</div></li>
+                </ul>
+    </nav>
+		
+	<div id="philosophyWho_EN" class="SECTION_VIEW EN">
+
+        <p style="padding:0 15 0 15">Our Concept...</p>
+        <p style="padding:0 15 0 15">
+            <strong>FromScratch Creative Studio</strong> is a digital creative studio, a group of passionate digital creatives.<br>
+            <strong>It is an open club to any creative mind willing to join and mutualize their effort in creation, sharing experience and share our knowlegde in different complementary fields.<br>
+            May it be in graphical arts, design, multimedias or even new techs, our ambition is to produce, in a collaborative way, various rich projets.   
+        </p>
+        <p style="padding:0 15 0 15">Our philosophy is that with creativity everything is possible, and FromScratch we can achieve the most beautyful things.</p>
+        <p style="padding:0 15 0 15">Imagination est the key.</p>
+        
+        <p style="padding:0 15 0 15">
+            Our projets are organized according different categories:
+        </p>
+        
+        <div style="padding:0 10 0 10;">
+            <ul>
+                <li><b style="text-decoration:underline;">FromScratch Studio</b> <br>Graphical projects: Illustrations, Design, Webcomics,...</li>
+                <li style="list-style-type:none">&nbsp;</li>
+                <li><b style="text-decoration:underline;">FromScratch Dev</b><br>Application development: Mobile Apps, Web, Softare Componants,...</li>
+                <li style="list-style-type:none">&nbsp;</li>
+                <li><b style="text-decoration:underline;">FromScratch Records</b><br>Sound Design, Beat making, Soundtracks,...</li>
+                <li style="list-style-type:none">&nbsp;</li>
+                <li><b style="text-decoration:underline;">FromScratch Pictures</b><br>Photography, Vidéo &amp; 2D Animation ptoject...</li>
+            </ul>
+        </div>
+		
+		<p style="padding:0 15 0 15">If you are a creative mind and/or have personnal projects to share, you can join the FromScratch Creative Studio and work together on our projects.</p>
+		<p style="padding:0 15 0 15">Feel free to contact us.</p>
+    </div>
+		
+        
+    <div id="presentationWho_EN" class="SECTION_VIEW EN" style="display:none;">
+
+		<!-- DEBUT -->
+		        <p style="padding:0 15 0 15">Who We Are......</p>
+        <p style="padding:0 15 0 15">
+            <strong>The FromScratch Creative Studio</strong> is a group of passionate creatives.<br>
+        </p>
+        <p style="padding:0 15 0 15">OUR MEMBERS:</p>
+		
+		<p>
+		<div style="padding:0 10 0 10;color:white;">
+            <ul style="">
+                <li style="list-style-type:none">
+					<table width="100%;" height="80px"; style="color:white;">
+						<tr width="100%;" height="80px;">
+							<td width="20%;" height="80px;"> <img class="TEAM_PIC" src="img/Team/Noah.jpg"/></td>
+							<td width="2%;" height="80px;"></td>
+							<td width="78%;" height="80px;" style="color:white;">
+							<p>
+								<strong><u>Noah Cham</u></strong> <br>
+								Author, scenarist and autodidact illustrator.<br>
+								He is one of the founders of the FromScratch (Creative) Studio.<br>
+								He is currently working on an online Web-comic project, available very soon: LEGACY.<br>
+								His inspiration comes from different influences and univers: mangas, urban cultures, jazz, philisophy and litterature...
+							</p>
+							</td>
+						</tr>
+					</table>
+				
+				</li>
+				
+                <li style="list-style-type:none">&nbsp;</li>
+				
+				<li style="list-style-type:none">
+					<table width="100%;" height="80px"; style="color:white;">
+						<tr width="100%;" height="80px;">
+							<td width="20%;" height="80px;"> <img class="TEAM_PIC" src="img/Team/MoradA.jpg"/></td>
+							<td width="2%;" height="80px;"></td>
+							<td width="78%;" height="80px;" style="color:white;">
+							<p>
+								<strong><u>Morad A.</u></strong> <br>
+								Developer and illustrator within the FormScratch Studio.<br>
+								He is one of the founder at the origine of the collective.<br>
+								Currently, he assists Noah Cham on his Web-comic project, LEGACY, as an illustrator and developer of the web site.<br>
+								So he is developer and technical leader on everything concerning web and mobile developments.
+							</p>
+							</td>
+						</tr>
+					</table>
+				
+				</li>
+				
+                <li style="list-style-type:none">&nbsp;</li>
+				
+				<li style="list-style-type:none">
+					<table width="100%;" height="80px;">
+						<tr width="100%;" height="80px;">
+							<td width="20%;" height="80px;"> <img class="TEAM_PIC" src="img/Team/3INU.jpg"/></td>
+							<td width="2%;" height="80px;"></td>
+							<td width="78%;" height="80px;" style="color:white;">
+							<p>
+								<strong><u>3Inu</u></strong> <br>
+								A passionate Beat maker &amp; Sound designer. <br>
+								His musical univers is very eclectic, mixing Soul music, Hip-hop influences with a touch of electro music. He loves musical experimentations.<br>
+								He already produced several instrumantals in a Hip-hop style for the Studio.<br>
+								He is working in his musical project (White Paper) within FromScratch Studio, he also produced some tracks for the Noah Cham's LEGACY projet soundtrack.
+							</p>
+							</td>
+						</tr>
+					</table>
+				
+				</li>
+				
+                <li style="list-style-type:none">&nbsp;</li>
+				
+				<li style="list-style-type:none">
+					<table width="100%;" height="80px;">
+						<tr width="100%;" height="80px;">
+							<td width="20%;" height="80px;"> <img class="TEAM_PIC" src="img/Team/DanDan.jpg"/></td>
+							<td width="2%;" height="80px;"></td>
+							<td width="78%;" height="80px;" style="color:white;">
+							<p>
+								<strong><u>Dan-Dan</u></strong><br>
+								Photograph.<br>
+								He actively participates to the group's different projects when his photograph skills are needed.<br>
+								He's got his own artistic photograph activity but he always follows with a lot of interest the studio's projects and his advises and point of view are very apreciated when it comes to image composition and photography.
+							</p>
+							</td>
+						</tr>
+					</table>
+				
+				</li>
+				
+                <li style="list-style-type:none">&nbsp;</li>
+				
+				<li style="list-style-type:none">
+					<table width="100%;" height="80px;">
+						<tr width="100%;" height="80px;">
+							<td width="20%;" height="80px;"> <img class="TEAM_PIC" src="img/Team/Pseudo.jpg"/></td>
+							<td width="2%;" height="80px;"></td>
+							<td width="78%;" height="80px;" style="color:white;">
+							<p>
+								<strong><u>Pseudo</u></strong> <br>
+								The free electron.<br>
+								A real dabbler, he is actually a lyricist, a poet and a graffiti artist!<br>
+								He follows and acts in the group as a journalist bringing his shrewd eye, capting inspirations of th moment.<br>
+								His help is very precious and apreciated on the graphical projects, he doesn't hesitate to lend his voice and his inspired texts on some mucisal projects and soundtracks.<br>
+							</p>
+							</td>
+						</tr>
+					</table>
+				
+				</li>
+				
+                <li style="list-style-type:none">&nbsp;</li>
+				
+            </ul>
+        </div>
+		</p>
+		<!--FIN-->
+    </div>
+    </div>
+	
+	
+	<!-- Fromscratch Studio team Part -->
+    <div id="fsstContainer_FR" class="PART_VIEW FR" style="display:none">
+    <img id="fromScratchBg2" src="img/fromscratchStudioIntro8.jpg"/>
+        
+        
+    <div class="MENU_ITEM" style="position:fixed;top:50px;left:21px;z-index:1005">
+                    <div class="DIV_NAV_LEFT" onclick="SwitchView('introContainer');"><img class="BTN_IMG_CIRCLE" src="img/logos/homeBtn.png" /></div>
+                    <div class="DIV_NAV_RIGHT" style="height:38px;">
+                        <ul>
+                            <li style="list-style-type:none;display"><div class="DIV_NAV_RIGHT_ITEM" style="top:0px;" onclick="SwitchView('introContainer');">Home</div></li>
+                        </ul>
+                    </div>
+                </div>
+        
+
+        
+    <nav id="menuWho_FR" class="FR">
+                <ul>
+                    <li style="list-style-type:none;display: inline-block;"><div onclick="SwitchSection('presentationWho');">Team</div></li>
+                    <li style="list-style-type:none;display: inline-block;"><div onclick="SwitchSection('presentationWho');">Projets</div></li>
+                </ul>
+    </nav>
+		
+	<nav id="menuWho_EN" class="EN" style="display:none;">
+                <ul>
+                    <li style="list-style-type:none;display: inline-block;"><div onclick="SwitchSection('presentationWho');">Team</div></li>
+                    <li style="list-style-type:none;display: inline-block;"><div onclick="SwitchSection('presentationWho');">Projects</div></li>
+                </ul>
+    </nav>
+    </div>   
+  
+        
+    <!-- Fromscratch Studio Part -->
+    <div id="fssContainer_FR" class="PART_VIEW FR" style="display:none">
+    <img id="fromScratchBg2" src="img/fromscratchStudioIntro8.jpg"/>
+        
+        
+    <div class="MENU_ITEM" style="position:fixed;top:50px;left:21px;z-index:1005">
+                    <div class="DIV_NAV_LEFT" onclick="SwitchView('introContainer');"><img class="BTN_IMG_CIRCLE" src="img/logos/homeBtn.png" /></div>
+                    <div class="DIV_NAV_RIGHT" style="height:38px;">
+                        <ul>
+                            <li style="list-style-type:none;display"><div class="DIV_NAV_RIGHT_ITEM" style="top:0px;" onclick="SwitchView('introContainer');">Home</div></li>
+                        </ul>
+                    </div>
+                </div>
+        
+    <!--<div id="illustrationWho">
+        <img id="illustrationWhoImg" src="img/illustrationTmp.jpg" />
+    </div>-->
+        
+    <nav id="menuWho_FR" class="FR">
+                <ul>
+                    <li style="list-style-type:none;display: inline-block;"><div onclick="SwitchSection('presentationWho');">Team</div></li>
+                    <li style="list-style-type:none;display: inline-block;"><div onclick="SwitchSection('presentationWho');">Projets</div></li>
+                </ul>
+    </nav>
+		
+	<nav id="menuWho_EN" class="EN" style="display:none;">
+                <ul>
+                    <li style="list-style-type:none;display: inline-block;"><div onclick="SwitchSection('presentationWho');">Team</div></li>
+                    <li style="list-style-type:none;display: inline-block;"><div onclick="SwitchSection('presentationWho');">Projects</div></li>
+                </ul>
+    </nav>
+    </div>    
+    
+    
+    <!-- Fromscratch Dev Part -->
+    <div id="fsdContainer_FR" class="PART_VIEW FR" style="display:none">
+        <img id="fromScratchBg2" src="img/fromscratchStudioIntro8.jpg"/>
+
+
+        <div class="MENU_ITEM" style="position:fixed;top:50px;left:21px;z-index:1005">
+                        <div class="DIV_NAV_LEFT" onclick="SwitchView('introContainer');"><img class="BTN_IMG_CIRCLE" src="img/logos/homeBtn.png" /></div>
+                        <div class="DIV_NAV_RIGHT" style="height:38px;">
+                            <ul>
+                                <li style="list-style-type:none;display"><div class="DIV_NAV_RIGHT_ITEM" style="top:0px;" onclick="SwitchView('introContainer');">Home</div></li>
+                            </ul>
+                        </div>
+                    </div>
+
+        <!--<div id="illustrationWho">
+            <img id="illustrationWhoImg" src="img/illustrationTmp.jpg" />
+        </div>-->
+
+       <nav id="menuWho_FR" class="FR">
+					<ul>
+						<li style="list-style-type:none;display: inline-block;"><div onclick="SwitchSection('presentationWho');">Team</div></li>
+						<li style="list-style-type:none;display: inline-block;"><div onclick="SwitchSection('presentationWho');">Projets</div></li>
+					</ul>
+		</nav>
+
+		<nav id="menuWho_EN" class="EN" style="display:none;">
+					<ul>
+						<li style="list-style-type:none;display: inline-block;"><div onclick="SwitchSection('presentationWho');">Team</div></li>
+						<li style="list-style-type:none;display: inline-block;"><div onclick="SwitchSection('presentationWho');">Projects</div></li>
+					</ul>
+		</nav>
+    </div>    
+    
+    <!-- Fromscratch Records/Audio Part -->
+    <div id="fsrContainer_FR" class="PART_VIEW FR" style="display:none">
+        <img id="fromScratchBg2" src="img/fromscratchStudioIntro8.jpg"/>
+
+
+        <div class="MENU_ITEM" style="position:fixed;top:50px;left:21px;z-index:1005">
+                        <div class="DIV_NAV_LEFT" onclick="SwitchView('introContainer');"><img class="BTN_IMG_CIRCLE" src="img/logos/homeBtn.png" /></div>
+                        <div class="DIV_NAV_RIGHT" style="height:38px;">
+                            <ul>
+                                <li style="list-style-type:none;display"><div class="DIV_NAV_RIGHT_ITEM" style="top:0px;" onclick="SwitchView('introContainer');">Home</div></li>
+                            </ul>
+                        </div>
+                    </div>
+
+        <div id="illustrationWho">
+            <img id="illustrationWhoImg" src="img/illustrationTmp.jpg" />
+        </div>
+
+        <nav id="menuWho_FR" class="FR">
+					<ul>
+						<li style="list-style-type:none;display: inline-block;"><div onclick="SwitchSection('presentationWho');">Team</div></li>
+						<li style="list-style-type:none;display: inline-block;"><div onclick="SwitchSection('presentationWho');">Projets</div></li>
+					</ul>
+		</nav>
+
+		<nav id="menuWho_EN" class="EN" style="display:none;">
+					<ul>
+						<li style="list-style-type:none;display: inline-block;"><div onclick="SwitchSection('presentationWho');">Team</div></li>
+						<li style="list-style-type:none;display: inline-block;"><div onclick="SwitchSection('presentationWho');">Projects</div></li>
+					</ul>
+		</nav>
+    </div>    
+    
+    
+    <!-- Fromscratch Pictures Part -->
+    <div id="fspContainer_FR" class="PART_VIEW FR" style="display:none">
+        <img id="fromScratchBg2" src="img/fromscratchStudioIntro8.jpg"/>
+
+
+        <div class="MENU_ITEM" style="position:fixed;top:50px;left:21px;z-index:1005">
+                        <div class="DIV_NAV_LEFT" onclick="SwitchView('introContainer');"><img class="BTN_IMG_CIRCLE" src="img/logos/homeBtn.png" /></div>
+                        <div class="DIV_NAV_RIGHT" style="height:38px;">
+                            <ul>
+                                <li style="list-style-type:none;display"><div class="DIV_NAV_RIGHT_ITEM" style="top:0px;" onclick="SwitchView('introContainer');">Home</div></li>
+                            </ul>
+                        </div>
+                    </div>
+
+        <!--<div id="illustrationWho">
+            <img id="illustrationWhoImg" src="img/illustrationTmp.jpg" />
+        </div>-->
+
+        <nav id="menuWho_FR" class="FR">
+					<ul>
+						<li style="list-style-type:none;display: inline-block;"><div onclick="SwitchSection('presentationWho');">Team</div></li>
+						<li style="list-style-type:none;display: inline-block;"><div onclick="SwitchSection('presentationWho');">Projets</div></li>
+					</ul>
+		</nav>
+
+		<nav id="menuWho_EN" class="EN" style="display:none;">
+					<ul>
+						<li style="list-style-type:none;display: inline-block;"><div onclick="SwitchSection('presentationWho');">Team</div></li>
+						<li style="list-style-type:none;display: inline-block;"><div onclick="SwitchSection('presentationWho');">Projects</div></li>
+					</ul>
+		</nav>
+    </div>    
+    
+    
+    
+    
+    
+    
+    <div id="hiddenLoadContainer"></div>
+    
+    <div id="assetLoader" class="assetLoader">
+            <img src="/img/loader/loaderBlack.gif"/>
+	    </div>
+    
+<audio id="audioTrack" src="sounds/OppressingRelease.mp3" loop>Ce control ne support pas le musique.</audio>
+</body>
+    
+<script>
+var CST_FR = "FR";
+var CST_EN = "EN";
+var GBL_LANG = CST_FR;
+var isMute = true;
+var playlist = new Array();
+var picAnimated =  new Array();
+
+    
+var displayController = new DisplayController();
+//displayController.InitIntro();
+displayController.LoadIntro();
+
+
+var currentPosition = 0;
+var currentPicPosition = 0;
+    
+var moncercleObj = document.getElementById("cerclePic");
+var moncercleObjNo = document.getElementById("cerclePicNO");
+var moncercleObjSo = document.getElementById("cerclePicSO");
+    
+    
+var launchPicLoop = function ()
+{
+    for(var idxP = 0;idxP < displayController.Assets["Assets"].length;idxP++)
+    {
+        picAnimated.push({coverPath:displayController.Assets["Assets"][idxP]["Path"]});
+    }
+    
+    if(moncercleObj != null && moncercleObj != undefined)
+    {
+        window.setInterval("setPic()", 100);
+    }
+    
+}
+    
+var setPic = function()
+{
+    moncercleObj.src = picAnimated[currentPicPosition%(picAnimated.length)].coverPath;
+    moncercleObjNo.src = picAnimated[currentPicPosition%(picAnimated.length)].coverPath;
+    moncercleObjSo.src = picAnimated[currentPicPosition%(picAnimated.length)].coverPath;
+    currentPicPosition++;
+}
+    
+setTimeout(launchPicLoop, 1500);
+    
+/*var audioElemObj = document.getElementById("audioTrack");
+
+if(audioElemObj != null && audioElemObj != undefined)
+{
+	//alert("picCollection[currentPosition].src ==  " + playlist[currentPosition%(playlist.length)].musicPath);
+	audioElemObj.src = playlist[currentPosition%(playlist.length)].musicPath;
+	audioElemObj.load();
+}*/
+
+var muteIntro = function()
+{
+    if(!isMute)
+    {
+        isMute = true;
+        
+        var audioElemObj = document.getElementById("audioTrack");
+
+        if(audioElemObj != null && audioElemObj != undefined)
+        {
+            audioElemObj.muted = true;
+            audioElemObj.pause();
+        }
+        
+        var muteImgElemObj = document.getElementById("muteImg");
+        if(muteImgElemObj != null && muteImgElemObj != undefined)
+            muteImgElemObj.src = "img/logos/unmute.jpg";
+    }
+    else
+    {
+        isMute = false;
+        
+        var audioElemObj = document.getElementById("audioTrack");
+
+        if(audioElemObj != null && audioElemObj != undefined)
+        {
+            audioElemObj.muted = false;
+            audioElemObj.play();
+        }
+        var muteImgElemObj = document.getElementById("muteImg");
+        if(muteImgElemObj != null && muteImgElemObj != undefined)
+            muteImgElemObj.src = "img/logos/mute.jpg";
+    }
+}
+
+
+var SwitchView = function(viewTagName)
+{
+
+    switch(viewTagName + "_" + GBL_LANG)
+    {
+        case "introContainer" + "_" + GBL_LANG:
+                $('.PART_VIEW').each(function(index, element){$(element).hide();})
+                $('#introContainer').show();
+            break;
+            
+        case "whoWeAreContainer" + "_" + GBL_LANG:
+                $('.PART_VIEW').each(function(index, element){$(element).hide();})
+                $('#whoWeAreContainer'+ "_" + GBL_LANG).show();
+            break;
+            
+        case "fssContainer" + "_" + GBL_LANG:
+                $('.PART_VIEW').each(function(index, element){$(element).hide();})
+                $('#fssContainer' + "_" + GBL_LANG).show();
+            break;
+            
+        case "fsdContainer" + "_" + GBL_LANG:
+                $('.PART_VIEW').each(function(index, element){$(element).hide();})
+                $('#fsdContainer' + "_" + GBL_LANG).show();
+            break;
+            
+        case "fsrContainer" + "_" + GBL_LANG:
+                $('.PART_VIEW').each(function(index, element){$(element).hide();})
+                $('#fsrContainer' + "_" + GBL_LANG).show();
+            break;
+            
+        case "fspContainer" + "_" + GBL_LANG:
+                $('.PART_VIEW').each(function(index, element){$(element).hide();})
+                $('#fspContainer' + "_" + GBL_LANG).show();
+            break;
+            
+        default:
+                $('.PART_VIEW').each(function(index, element){$(element).hide();})
+                $('#introContainer').show();
+            break;
+    }
+    SwitchLanguage(GBL_LANG);
+}
+
+
+var SwitchSection = function(sectionName)
+{
+switch(sectionName + "_" + GBL_LANG)
+    {
+        case "philosophyWho" + "_" + GBL_LANG:
+                $('.SECTION_VIEW').each(function(index, element){$(element).hide();})
+                $('#philosophyWho' + "_" + GBL_LANG).show();
+            break;
+            
+        case "presentationWho" + "_" + GBL_LANG:
+                $('.SECTION_VIEW').each(function(index, element){$(element).hide();})
+                $('#presentationWho' + "_" + GBL_LANG).show();
+            break;
+            
+        default:
+                $('.SECTION_VIEW').each(function(index, element){$(element).hide();})
+                $('#philosophyWho'+ "_" + GBL_LANG).show();
+            break;
+    }
+	SwitchLanguage(GBL_LANG);
+}
+
+
+var SwitchLanguage = function(newLangDisplay)
+{
+	var oldLanguage = ((newLangDisplay==CST_FR)?CST_EN:CST_FR);
+	
+	$('.' + oldLanguage).each(function(index, element)
+						 {
+							var elemId = $(element).attr('id');
+		
+							if($(element).is(':visible'))
+							{
+								$(element).hide();
+								
+								if(elemId.indexOf("_" + oldLanguage) > -1 )
+								{
+									var elementIdToDisplay = '#' + elemId.replace("_" + oldLanguage, "_" + newLangDisplay)
+								
+									//if(!$(elementIdToDisplay).is(':visible'))
+										$(elementIdToDisplay).show();
+								}
+								else{
+									
+								}	
+							}
+							/*else
+							{
+								if(elemId.indexOf("_" + oldLanguage) > -1 )
+								{
+									var elementIdToDisplay = '#' + elemId.replace("_" + oldLanguage, "_" + newLangDisplay)
+								
+									//if(!$(elementIdToDisplay).is(':visible'))
+										$(elementIdToDisplay).show();
+								}
+								else{
+									
+								}	
+							}*/
+						 })
+                //$('#introContainer').show();
+}
+
+
+var ChangeSiteLanguage = function(newLangDisplay)
+{
+	//var oldLanguage = ((newLangDisplay==CST_FR)?CST_EN:CST_FR);
+	
+	switch(newLangDisplay)
+	{
+		case CST_FR:
+			
+			GBL_LANG = CST_FR;
+			SwitchLanguage(GBL_LANG);
+			$("#frLangImg").hide();
+			$("#enLangImg").show();
+			break;
+			
+			
+		case CST_EN:
+			GBL_LANG = CST_EN;
+			SwitchLanguage(GBL_LANG);
+			$("#enLangImg").hide();
+			$("#frLangImg").show();
+			break;
+	}
+}
+
+SwitchLanguage(GBL_LANG);
+</script>
+</html>

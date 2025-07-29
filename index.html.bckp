@@ -1,0 +1,811 @@
+<html>
+<head>
+    <link rel="shortcut icon" type="image/x-icon" href="img/logos/fromScratchStudio-transparent-final.png" />
+    <link href='http://fonts.googleapis.com/css?family=Gruppo&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link href='style/intro.css' rel="stylesheet" type='text/css'>
+    <link href='style/circles.css' rel="stylesheet" type='text/css'>
+    <title>FromScratch Studio...</title>
+</head>
+<script type="text/javascript" src="js/jquery-2.1.3.js"></script>
+<script type="text/javascript" src="js/ajaxManager.js"></script> 
+<script type="text/javascript" src="js/DisplayController.js"></script>
+    
+<style>
+#triangleLeft {
+    position:absolute;
+    top:50%;
+    left:50%;
+    margin-top: -200px;
+	width: 0;
+	height: 0;
+	border-top: 100px solid red;
+	border-right: 300px solid transparent;
+	border-bottom: 100px solid transparent;
+    border-left: 0px solid red;
+}
+    
+#hiddenLoadContainer
+{
+    position: fixed;
+    top:-30000px;
+    left: -30000px;
+}
+    
+.assetLoader
+{   
+    clear:both;
+	position:absolute;
+	left:0px;
+    top:0px;
+    /*margin-left:-50%;
+	margin-top: -25%;*//*-250px;*/
+	width:100%;
+	height: 100%;/*500px;*/
+    z-index: 2000;
+    background-color: black;
+    opacity: 0.7;
+}
+
+.assetLoader img
+{   
+    clear:both;
+	position:relative;
+	left:50%;
+    margin-left: -60px;
+    top:50%;
+    margin-top: -60px;
+    /*margin-left:-50%;
+	margin-top: -25%;*//*-250px;*/
+	width:120px;
+	height: 120px;
+    z-index: 2000;
+    background-color: white;
+    opacity: 0.6;
+    border-radius: 50%;
+}
+    
+    #leftMenuBar
+    {
+        position:fixed;
+        top:15px;
+        left:15px;
+        border: 1px solid #dedede;
+	    border-radius: 4px;
+	    box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.055);
+	    color: #888;
+	    display: block;
+        margin: 8px 22px 8px 22px;
+        overflow:visible;
+        width: 250px; 
+        }
+    
+    div.NAV_BAR
+    {
+        clear: both;
+        width: 250px; 
+        height:230px;
+        position:absolute;
+        top:45%;
+        left:0px;
+        margin-top: -115px;
+        /*border: 1px solid pink;*/
+	    border-radius: 4px;
+	    box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.055);
+	    color: #888;
+	    display: block;
+        margin: 8px 22px 8px 22px;
+        overflow:visible;
+        list-style-type: none;
+        z-index: 1000;
+        /*display: none;*/
+    }
+    
+    div.NAV_BAR > ul > li
+    {
+        list-style-type: none;
+    }
+    
+    .MENU_ITEM
+    {
+        clear: both;
+        position: absolute;
+        left:0px;
+        width:40px;
+        text-decoration: none;
+        margin-bottom: 5px;
+    }
+    
+    .MENU_ITEM:hover > div
+    {
+        display: block; 
+    }
+    
+    .DIV_NAV_LEFT
+    {
+        position: absolute;
+        left:0px;
+        width:40px;
+        height: 40px;
+        background-color: black;
+        border:solid 1px #585858;
+        border-radius: 50%;
+        color:white;
+    }
+    
+    .DIV_NAV_LEFT:hover
+    {
+        position: absolute;
+        left:0px;
+        width:40px;
+        height: 40px;
+        margin-bottom: 5px;
+        border:solid 1px white;
+    }
+    
+    .DIV_NAV_LEFT:hover .DIV_NAV_RIGHT
+    {
+        display: block;
+        font-weight: 750;
+        text-decoration:underline;
+        /*text-decoration-color: white;*/
+        -webkit-transition: opacity 0.2s;
+        -moz-transition: opacity 0.2s;
+        -ms-transition: opacity 0.2s;
+        -o-transition: opacity 0.2s;
+        -transition: opacity 0.2s;
+    }
+    
+    .DIV_NAV_RIGHT
+    {
+        position: absolute;
+        left:40px;
+        width:188px;
+        display: none;
+    }
+    
+    .DIV_NAV_RIGHT_ITEM
+    {
+        position: absolute;
+        left: 5px;
+        width:188px;
+        height: 40px;
+        /*background-color: black;*/
+        color:white;
+        text-decoration: none;
+    }
+    
+    .DIV_NAV_RIGHT_ITEM:hover
+    {
+        /*background-color:black;*/
+        text-decoration: underline;
+        font-weight: 750;
+        -webkit-transition: opacity 0.2s;
+        -moz-transition: opacity 0.2s;
+        -ms-transition: opacity 0.2s;
+        -o-transition: opacity 0.2s;
+        -transition: opacity 0.2s;
+    }
+    
+    /****************/
+    
+   .BTN_IMG_CIRCLE
+    {
+        position: absolute;
+        top:50%;
+        left:50%;
+        margin-top: -50%;
+        margin-left: -50%;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+    }
+    
+    
+    
+    /**Dispatched Menu*/
+    .PART_VIEW
+    {
+        z-index:100;
+        color:white;
+    }
+    
+    .SECTION_VIEW
+    {}
+    
+    
+    #whoWeAreContainer
+    {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+    
+    #menuWho
+    {
+        position: absolute;
+        top:70px;
+        left:65%;
+        width:35%;
+        height: 30px;
+        background-color: black;
+        opacity: 0.6;   
+    }
+    
+    #menuWho > ul
+    {
+        position: absolute;
+        top:0px;
+    }
+    
+    #menuWho > ul > li
+    {
+        margin:0 15 0 15;
+    }
+    
+    #menuWho > ul > li:hover
+    {
+        text-decoration: underline;
+    }
+    
+    #menuWho > ul > li:active
+    {
+        text-decoration: underline;
+    }
+    
+    #illustrationWho
+    {
+        position: absolute;
+        top:0px;
+        left:80px;
+        background-color:black;
+        width: 400px;
+        height: 100%;
+        opacity: 0.8;
+    }
+    
+    #illustrationWhoImg
+    {
+        position: absolute;
+        top:0px;
+        left:0px;
+        width: 100%;;
+        height: 100%;
+    }
+    
+    #philosophyWho
+    {
+        position: absolute;
+        top:110px;
+        left:500px;
+        width:auto;
+        height: 80%;
+        background-color: black;
+        opacity: 0.6;
+    }
+    
+    #presentationWho
+    {
+        position: absolute;
+        top:110px;
+        left:500px;
+        width:auto;
+        height: 80%;
+        background-color: black;
+        opacity: 0.6;
+    }
+    
+    #fssContainer
+    {
+    
+    }
+    
+    #fsdContainer
+    {}
+    
+    #fsrContainer
+    {}
+    
+    #fspContainer
+    {}
+    
+</style>
+
+<body>
+    
+<div id="fssLang">
+        <img id="frLangImg" src="img/icons/frLang.png"/>
+        <img id="enLangImg" src="img/icons/enLang.jpg"/>
+</div>
+    
+<div id="fssTitle">FromScratch Creative Studio</div>
+    
+<div id="introContainer" class="PART_VIEW" style="display:block">
+    
+    <img id="fromScratchBg" src="img/fromscratchStudioIntro8.jpg"/>
+    
+    <div id="moncercle">
+        <img id="cerclePic" src="img/gallery/WhitePaperCovers/RouePattern.jpg"/> 
+        <div id="moncercleIn">
+            <img id="fromScratchCover" src="img/logos/fromScratchStudioFinal.png"/>
+            <div id="enterSiteDiv"><a>Coming soon...<!--Enter--></a></div>
+        </div>
+    </div>
+    
+        
+        
+    <div id="moncercleNO">
+        <img id="cerclePicNO" src="img/gallery/WhitePaperCovers/RouePattern.jpg"/> 
+        <div id="moncercleInNO">
+            <img id="fromScratchCoverNO" src="img/logos/FromScratchPictures-WhireBGSimple.png"/>
+        </div>
+    </div>
+    
+    <div id="moncercleSO">
+        <img id="cerclePicSO" src="img/gallery/WhitePaperCovers/RouePattern.jpg"/> 
+        <div id="moncercleInSO">
+            <img id="fromScratchCoverSO" src="img/logos/fromScratchRecords-whiteBG-final.png"/>
+        </div>
+    </div>
+    
+    
+
+    
+    
+    
+    <!-- Alternate way to display menu -->
+    <!--
+    <div id="fssStudioMenu" style="height:38px;">
+        <div class="SECTION_NAV">FromScratch Studio...</div>
+        <div class="DIV_NAV_RIGHT" style="height:38px;">
+            <ul>
+                <li><div class="DIV_NAV_RIGHT_ITEM" style="top:0px;">FromScratch Pictures...</div></li>
+                <li><div class="DIV_NAV_RIGHT_ITEM" style="top:45px;">A...</div></li>
+                <li><div class="DIV_NAV_RIGHT_ITEM" style="top:90px;">B...</div></li>
+            </ul>
+        </div>
+    </div>-->
+    
+    <center><div id="trackInfoDiv"><p>FromScratch Creative Studio</p></div></center> 
+    <center><div id="muteDiv" onclick="muteIntro();"><img id="muteImg" src="img/logos/unmute.jpg"/></div></center> 
+</div>
+    
+    
+    <div class="NAV_BAR">
+        <ul>
+            
+            <li>
+                <div class="MENU_ITEM" style="top:0px;">
+                    <div class="DIV_NAV_LEFT" onclick="SwitchView('whoWeAreContainer');"><img class="BTN_IMG_CIRCLE" src="img/logos/fssWhoWeAre.jpg" /></div>
+                    <div class="DIV_NAV_RIGHT" style="height:38px;">
+                        <ul>
+                            <li><div class="DIV_NAV_RIGHT_ITEM" style="top:0px;" onclick="SwitchView('whoWeAreContainer');">Who We Are...</div></li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+            
+            <li>
+                <div class="MENU_ITEM" style="top:45px;">
+                    <div class="DIV_NAV_LEFT" onclick="SwitchView('fssContainer');"><img class="BTN_IMG_CIRCLE" src="img/logos/fromScratchStudioFinal.png" /></div>
+                    <div class="DIV_NAV_RIGHT" style="height:38px;">
+                        <ul>
+                            <li><div class="DIV_NAV_RIGHT_ITEM" style="top:0px;" onclick="SwitchView('fssContainer');">FromScratch Studio...</div></li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+            
+            <li>
+                <div class="MENU_ITEM" style="top:90px;">
+                    <div class="DIV_NAV_LEFT" onclick="SwitchView('fsdContainer');"><img class="BTN_IMG_CIRCLE" src="img/logos/FromScratchDev.jpg" /></div>
+                    <div class="DIV_NAV_RIGHT" style="height:38px;">
+                        <ul>
+                            <li><div class="DIV_NAV_RIGHT_ITEM" style="top:0px;" onclick="SwitchView('fsdContainer');">FromScratch Devs...</div></li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+            
+            <li>
+                <div class="MENU_ITEM" style="top:135px;">
+                    <div class="DIV_NAV_LEFT" onclick="SwitchView('fsrContainer');"><img class="BTN_IMG_CIRCLE" src="img/logos/fromScratchRecords-whiteBG-final.png" /></div>
+                    <div class="DIV_NAV_RIGHT" style="height:38px;">
+                        <ul>
+                            <li><div class="DIV_NAV_RIGHT_ITEM" style="top:0px;" onclick="SwitchView('fsrContainer');">FromScratch Records...</div></li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+            
+            <li>
+                <div class="MENU_ITEM" style="top:180px;">
+                    <div class="DIV_NAV_LEFT" onclick="SwitchView('fspContainer');"><img class="BTN_IMG_CIRCLE" src="img/logos/FromScratchPictures-WhireBGSimple.png" /></div>
+                    <div class="DIV_NAV_RIGHT" style="height:38px;">
+                        <ul>
+                            <li><div class="DIV_NAV_RIGHT_ITEM" style="top:0px;" onclick="SwitchView('fspContainer');">FromScratch Pictures...</div></li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+            
+
+            
+            <li>
+                <div class="MENU_ITEM" style="top:225px;">
+                    <div class="DIV_NAV_LEFT"><img class="BTN_IMG_CIRCLE" src="img/logos/logocontact.jpg" /></div>
+                    <div class="DIV_NAV_RIGHT" style="height:38px;">
+                        <ul>
+                            <li><div class="DIV_NAV_RIGHT_ITEM" style="top:0px;">Contact Us</div></li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+            
+        </ul>
+    
+    </div>
+    
+    
+    
+    <!-- Who We Are Part-->
+    <div id="whoWeAreContainer" class="PART_VIEW" style="display:none;">
+    
+    <img id="fromScratchBg2" src="img/fromscratchStudioIntro8.jpg"/>
+        
+        
+    <div class="MENU_ITEM" style="position:fixed;top:50px;left:21px;z-index:1005">
+                    <div class="DIV_NAV_LEFT" onclick="SwitchView('introContainer');"><img class="BTN_IMG_CIRCLE" src="img/logos/homeBtn.png" /></div>
+                    <div class="DIV_NAV_RIGHT" style="height:38px;">
+                        <ul>
+                            <li style="list-style-type:none;display"><div class="DIV_NAV_RIGHT_ITEM" style="top:0px;" onclick="SwitchView('introContainer');">Home</div></li>
+                        </ul>
+                    </div>
+                </div>
+        
+    <div id="illustrationWho">
+        <img id="illustrationWhoImg" src="img/illustrationTmp.jpg" />
+    </div>
+        
+    <nav id="menuWho">
+                <ul>
+                    <li style="list-style-type:none;display: inline-block;"><div onclick="SwitchSection('philosophyWho');">Philosophie</div></li>
+                    <li style="list-style-type:none;display: inline-block;"><div onclick="SwitchSection('presentationWho');">Qui sommes-nous?</div></li>
+                </ul>
+    </nav>
+    <div id="philosophyWho" class="SECTION_VIEW">
+
+        <p style="padding:0 15 0 15">Notre Philosophie...</p>
+        <p style="padding:0 15 0 15">
+            <strong>FromScratch Creative Studio</strong> est un collectif pluridisciplinaire de passionnes.<br>
+            <strong>FromScratch Creative Studio</strong> est une regroupement de talents ayant pour objectif la creativite sous toutes ses formes.
+            Que ce soit dans le domaine de l'art graphique, du design, des multimedias ou encore des nouvelles technologies, notre ambition est de realiser des projets riches et varies.    
+        </p>
+        <p style="padding:0 15 0 15">Notre philosophie est que tout est possible, et que FromScratch nous pouvons realiser les plus belles choses.</p>
+        <p style="padding:0 15 0 15">L'imagination est la cle.</p>
+        <p style="padding:0 15 0 15">La creativite en est la voie.</p>
+        <p style="padding:0 15 0 15">Avec le succes pour destination. </p>
+        
+        <p style="padding:0 15 0 15">
+            Nous organisons nos activites et projets selon differentes categories:
+        </p>
+        
+        <div style="padding:0 10 0 10">
+            <ul>
+                <li><b style="text-decoration:underline;">FromScratch Studio</b> <br>Activites graphiques: Illustrations, Design, Bandes dessinees,...</li>
+                <li style="list-style-type:none">&nbsp;</li>
+                <li><b style="text-decoration:underline;">FromScratch Dev</b><br>Developpement d'Application: Apps mobiles, Web, Composants,...</li>
+                <li style="list-style-type:none">&nbsp;</li>
+                <li><b style="text-decoration:underline;">FromScratch Records</b><br>Sound Design, Beat making...</li>
+                <li style="list-style-type:none">&nbsp;</li>
+                <li><b style="text-decoration:underline;">FromScratch Pictures</b><br>Activites Photos, Videos et Animation 2D..</li>
+            </ul>
+        </div>
+    </div>
+        
+    <div id="presentationWho" class="SECTION_VIEW" style="display:none;">
+
+        <p style="padding:0 15 0 15">Qui nous sommes...</p>
+        <p style="padding:0 15 0 15">
+            <strong>FromScratch Creative Studio</strong> est un collectif pluridisciplinaire de passionnes.<br>
+            Nos equipes...
+        </p>
+        <p style="padding:0 15 0 15">UNDER CONSTRUCTION...</p>
+        <!--<p style="padding:0 15 0 15">Notre philosophie est que tout est possible, et que FromScratch nous pouvons realiser les plus belles choses.</p>
+        <p style="padding:0 15 0 15">L'imagination est la cle.</p>
+        <p style="padding:0 15 0 15">La creativite en est la voie.</p>
+        <p style="padding:0 15 0 15">Avec le succes pour destination. </p>
+        
+        <p style="padding:0 15 0 15">
+            Nous organisons nos activites et projets selon differentes categories:
+        </p>
+        
+        <div style="padding:0 10 0 10">
+            <ul>
+                <li><b style="text-decoration:underline;">FromScratch Studio</b> <br>Activites graphiques: Illustrations, Design, Bandes dessinees,...</li>
+                <li style="list-style-type:none">&nbsp;</li>
+                <li><b style="text-decoration:underline;">FromScratch Dev</b><br>Developpement d'Application: Apps mobiles, Web, Composants,...</li>
+                <li style="list-style-type:none">&nbsp;</li>
+                <li><b style="text-decoration:underline;">FromScratch Records</b><br>Sound Design, Beat making...</li>
+                <li style="list-style-type:none">&nbsp;</li>
+                <li><b style="text-decoration:underline;">FromScratch Pictures</b><br>Activites Photos, Videos et Animation 2D..</li>
+            </ul>
+        </div>
+        -->
+    </div>
+    </div>
+  
+        
+    <!-- Fromscratch Studio Part -->
+    <div id="fssContainer" class="PART_VIEW" style="display:none">
+    <img id="fromScratchBg2" src="img/fromscratchStudioIntro8.jpg"/>
+        
+        
+    <div class="MENU_ITEM" style="position:fixed;top:50px;left:21px;z-index:1005">
+                    <div class="DIV_NAV_LEFT" onclick="SwitchView('introContainer');"><img class="BTN_IMG_CIRCLE" src="img/logos/homeBtn.png" /></div>
+                    <div class="DIV_NAV_RIGHT" style="height:38px;">
+                        <ul>
+                            <li style="list-style-type:none;display"><div class="DIV_NAV_RIGHT_ITEM" style="top:0px;" onclick="SwitchView('introContainer');">Home</div></li>
+                        </ul>
+                    </div>
+                </div>
+        
+    <div id="illustrationWho">
+        <img id="illustrationWhoImg" src="img/illustrationTmp.jpg" />
+    </div>
+        
+    <nav id="menuWho">
+                <ul>
+                    <li style="list-style-type:none;display: inline-block;"><div onclick="SwitchSection('presentationWho');">Team</div></li>
+                    <li style="list-style-type:none;display: inline-block;"><div onclick="SwitchSection('presentationWho');">Projects</div></li>
+                </ul>
+    </nav>
+    </div>    
+    
+    
+    <!-- Fromscratch Dev Part -->
+    <div id="fsdContainer" class="PART_VIEW" style="display:none">
+        <img id="fromScratchBg2" src="img/fromscratchStudioIntro8.jpg"/>
+
+
+        <div class="MENU_ITEM" style="position:fixed;top:50px;left:21px;z-index:1005">
+                        <div class="DIV_NAV_LEFT" onclick="SwitchView('introContainer');"><img class="BTN_IMG_CIRCLE" src="img/logos/homeBtn.png" /></div>
+                        <div class="DIV_NAV_RIGHT" style="height:38px;">
+                            <ul>
+                                <li style="list-style-type:none;display"><div class="DIV_NAV_RIGHT_ITEM" style="top:0px;" onclick="SwitchView('introContainer');">Home</div></li>
+                            </ul>
+                        </div>
+                    </div>
+
+        <div id="illustrationWho">
+            <img id="illustrationWhoImg" src="img/illustrationTmp.jpg" />
+        </div>
+
+        <nav id="menuWho">
+                    <ul>
+                        <li style="list-style-type:none;display: inline-block;"><div onclick="SwitchSection('presentationWho');">Team</div></li>
+                        <li style="list-style-type:none;display: inline-block;"><div onclick="SwitchSection('presentationWho');">Projects</div></li>
+                    </ul>
+        </nav>
+    </div>    
+    
+    <!-- Fromscratch Records/Audio Part -->
+    <div id="fsrContainer" class="PART_VIEW" style="display:none">
+        <img id="fromScratchBg2" src="img/fromscratchStudioIntro8.jpg"/>
+
+
+        <div class="MENU_ITEM" style="position:fixed;top:50px;left:21px;z-index:1005">
+                        <div class="DIV_NAV_LEFT" onclick="SwitchView('introContainer');"><img class="BTN_IMG_CIRCLE" src="img/logos/homeBtn.png" /></div>
+                        <div class="DIV_NAV_RIGHT" style="height:38px;">
+                            <ul>
+                                <li style="list-style-type:none;display"><div class="DIV_NAV_RIGHT_ITEM" style="top:0px;" onclick="SwitchView('introContainer');">Home</div></li>
+                            </ul>
+                        </div>
+                    </div>
+
+        <div id="illustrationWho">
+            <img id="illustrationWhoImg" src="img/illustrationTmp.jpg" />
+        </div>
+
+        <nav id="menuWho">
+                    <ul>
+                        <li style="list-style-type:none;display: inline-block;"><div onclick="SwitchSection('presentationWho');">Team</div></li>
+                        <li style="list-style-type:none;display: inline-block;"><div onclick="SwitchSection('presentationWho');">Projects</div></li>
+                    </ul>
+        </nav>
+    </div>    
+    
+    
+    <!-- Fromscratch Pictures Part -->
+    <div id="fspContainer" class="PART_VIEW" style="display:none">
+        <img id="fromScratchBg2" src="img/fromscratchStudioIntro8.jpg"/>
+
+
+        <div class="MENU_ITEM" style="position:fixed;top:50px;left:21px;z-index:1005">
+                        <div class="DIV_NAV_LEFT" onclick="SwitchView('introContainer');"><img class="BTN_IMG_CIRCLE" src="img/logos/homeBtn.png" /></div>
+                        <div class="DIV_NAV_RIGHT" style="height:38px;">
+                            <ul>
+                                <li style="list-style-type:none;display"><div class="DIV_NAV_RIGHT_ITEM" style="top:0px;" onclick="SwitchView('introContainer');">Home</div></li>
+                            </ul>
+                        </div>
+                    </div>
+
+        <div id="illustrationWho">
+            <img id="illustrationWhoImg" src="img/illustrationTmp.jpg" />
+        </div>
+
+        <nav id="menuWho">
+                    <ul>
+                        <li style="list-style-type:none;display: inline-block;"><div onclick="SwitchSection('presentationWho');">Team</div></li>
+                        <li style="list-style-type:none;display: inline-block;"><div onclick="SwitchSection('presentationWho');">Projects</div></li>
+                    </ul>
+        </nav>
+    </div>    
+    
+    
+    
+    
+    
+    
+    <div id="hiddenLoadContainer"></div>
+    
+    <div id="assetLoader" class="assetLoader">
+            <img src="/img/loader/loaderBlack.gif"/>
+	    </div>
+    
+<audio id="audioTrack" src="sounds/OppressingRelease.mp3" loop>Ce control ne support pas le musique.</audio>
+</body>
+    
+<script>
+var isMute = true;
+var playlist = new Array();
+var picAnimated =  new Array();
+
+    
+var displayController = new DisplayController();
+//displayController.InitIntro();
+displayController.LoadIntro();
+
+
+var currentPosition = 0;
+var currentPicPosition = 0;
+    
+var moncercleObj = document.getElementById("cerclePic");
+var moncercleObjNo = document.getElementById("cerclePicNO");
+var moncercleObjSo = document.getElementById("cerclePicSO");
+    
+    
+var launchPicLoop = function ()
+{
+    for(var idxP = 0;idxP < displayController.Assets["Assets"].length;idxP++)
+    {
+        picAnimated.push({coverPath:displayController.Assets["Assets"][idxP]["Path"]});
+    }
+    
+    if(moncercleObj != null && moncercleObj != undefined)
+    {
+        window.setInterval("setPic()", 100);
+    }
+    
+}
+    
+var setPic = function()
+{
+    moncercleObj.src = picAnimated[currentPicPosition%(picAnimated.length)].coverPath;
+    moncercleObjNo.src = picAnimated[currentPicPosition%(picAnimated.length)].coverPath;
+    moncercleObjSo.src = picAnimated[currentPicPosition%(picAnimated.length)].coverPath;
+    currentPicPosition++;
+}
+    
+setTimeout(launchPicLoop, 1500);
+    
+/*var audioElemObj = document.getElementById("audioTrack");
+
+if(audioElemObj != null && audioElemObj != undefined)
+{
+	//alert("picCollection[currentPosition].src ==  " + playlist[currentPosition%(playlist.length)].musicPath);
+	audioElemObj.src = playlist[currentPosition%(playlist.length)].musicPath;
+	audioElemObj.load();
+}*/
+
+var muteIntro = function()
+{
+    if(!isMute)
+    {
+        isMute = true;
+        
+        var audioElemObj = document.getElementById("audioTrack");
+
+        if(audioElemObj != null && audioElemObj != undefined)
+        {
+            audioElemObj.muted = true;
+            audioElemObj.pause();
+        }
+        
+        var muteImgElemObj = document.getElementById("muteImg");
+        if(muteImgElemObj != null && muteImgElemObj != undefined)
+            muteImgElemObj.src = "img/logos/unmute.jpg";
+    }
+    else
+    {
+        isMute = false;
+        
+        var audioElemObj = document.getElementById("audioTrack");
+
+        if(audioElemObj != null && audioElemObj != undefined)
+        {
+            audioElemObj.muted = false;
+            audioElemObj.play();
+        }
+        var muteImgElemObj = document.getElementById("muteImg");
+        if(muteImgElemObj != null && muteImgElemObj != undefined)
+            muteImgElemObj.src = "img/logos/mute.jpg";
+    }
+}
+
+
+var SwitchView = function(viewTagName)
+{
+
+    switch(viewTagName)
+    {
+        case "introContainer":
+                $('.PART_VIEW').each(function(index, element){$(element).hide();})
+                $('#introContainer').show();
+            break;
+            
+        case "whoWeAreContainer":
+                $('.PART_VIEW').each(function(index, element){$(element).hide();})
+                $('#whoWeAreContainer').show();
+            break;
+            
+        case "fssContainer":
+                $('.PART_VIEW').each(function(index, element){$(element).hide();})
+                $('#fssContainer').show();
+            break;
+            
+        case "fsdContainer":
+                $('.PART_VIEW').each(function(index, element){$(element).hide();})
+                $('#fsdContainer').show();
+            break;
+            
+        case "fsrContainer":
+                $('.PART_VIEW').each(function(index, element){$(element).hide();})
+                $('#fsrContainer').show();
+            break;
+            
+        case "fspContainer":
+                $('.PART_VIEW').each(function(index, element){$(element).hide();})
+                $('#fspContainer').show();
+            break;
+            
+        default:
+                $('.PART_VIEW').each(function(index, element){$(element).hide();})
+                $('#introContainer').show();
+            break;
+    }
+    
+}
+
+
+var SwitchSection = function(sectionName)
+{
+switch(sectionName)
+    {
+        case "philosophyWho":
+                $('.SECTION_VIEW').each(function(index, element){$(element).hide();})
+                $('#philosophyWho').show();
+            break;
+            
+        case "presentationWho":
+                $('.SECTION_VIEW').each(function(index, element){$(element).hide();})
+                $('#presentationWho').show();
+            break;
+            
+        default:
+                $('.SECTION_VIEW').each(function(index, element){$(element).hide();})
+                $('#philosophyWho').show();
+            break;
+    }
+}
+</script>
+</html>
