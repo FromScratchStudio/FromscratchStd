@@ -103,8 +103,13 @@ function _startCycle() {
 }
 
 function _advanceFrame() {
-  const src = imagePaths[frameIndex % imagePaths.length];
-  rings.forEach((ring) => { ring.src = src; });
+  const total = imagePaths.length;
+  rings.forEach((ring, i) => {
+    // Each ring is offset by an equal fraction of the image list so they
+    // independently display different pictures at the same time.
+    const offset = Math.floor((i * total) / rings.length);
+    ring.src = imagePaths[(frameIndex + offset) % total];
+  });
   frameIndex += 1;
 }
 
