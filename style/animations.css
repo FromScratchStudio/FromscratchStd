@@ -8,22 +8,6 @@
   to   { transform: rotate(360deg); }
 }
 
-@keyframes fade-in {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
-
-@keyframes slide-in-popup {
-  from {
-    opacity: 0;
-    transform: translateY(8px);
-  }
-  to {
-    opacity: 0.95;
-    transform: translateY(0);
-  }
-}
-
 /* Applied to each .circle-ring img */
 .circle-ring {
   animation: ring-spin 20s linear infinite;

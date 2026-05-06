@@ -36,7 +36,7 @@ export function initAudio() {
  * Toggle between playing (unmuted) and paused.
  * Updates the button icon and aria-pressed to reflect the state.
  */
-export function toggleMute() {
+function toggleMute() {
   if (isPlaying) {
     pause();
   } else {
@@ -44,7 +44,7 @@ export function toggleMute() {
   }
 }
 
-export function play() {
+function play() {
   if (!audioEl) return;
   audioEl.muted = false;
   audioEl.play().then(() => {
@@ -57,17 +57,12 @@ export function play() {
   });
 }
 
-export function pause() {
+function pause() {
   if (!audioEl) return;
   audioEl.muted = true;
   audioEl.pause();
   isPlaying = false;
   _updateIcon();
-}
-
-/** Whether audio is currently playing. */
-export function isAudioPlaying() {
-  return isPlaying;
 }
 
 function _updateIcon() {
