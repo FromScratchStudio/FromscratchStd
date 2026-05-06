@@ -1,0 +1,450 @@
+/* =========================================================
+   FromScratch Studio — Main Stylesheet
+   Stack: CSS Custom Properties · Grid · Flexbox · clamp()
+   ========================================================= */
+
+/* --- Custom Properties ----------------------------------- */
+:root {
+  --clr-bg:        #000;
+  --clr-text:      #fff;
+  --clr-accent:    #585858;
+  --clr-border:    #dedede;
+  --clr-popup-bg:  #0e0e0d;
+  --clr-close-btn: rgba(235, 9, 9, 0.769);
+
+  --font-brand: 'Gruppo', cursive;
+
+  /* Fluid circle sizes */
+  --circle-main: clamp(160px, 25vmin, 250px);
+  --circle-ne:   clamp(50px,  8vmin,  80px);
+  --circle-se:   clamp(75px, 12vmin, 120px);
+
+  --nav-icon: 40px;
+  --nav-gap:   5px;
+
+  --ease: 0.2s ease;
+
+  --z-nav:    100;
+  --z-popup:  200;
+  --z-loader: 300;
+}
+
+/* --- Reset & Base ---------------------------------------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+/* Screen-reader only — visually hidden but accessible to assistive technology */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+body {
+  background-color: var(--clr-bg);
+  color: var(--clr-text);
+  font-family: var(--font-brand);
+  overflow: hidden;
+}
+
+/* --- Site Header ----------------------------------------- */
+#site-title {
+  position: fixed;
+  top: 15px;
+  right: 60px;
+  font-size: 1.875rem;
+  color: var(--clr-text);
+  z-index: var(--z-nav);
+  pointer-events: none;
+  user-select: none;
+}
+
+/* --- Language Switcher ----------------------------------- */
+#lang-switcher {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  z-index: calc(var(--z-popup) + 10);
+}
+
+.lang-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  opacity: 0.5;
+  transition: opacity var(--ease);
+}
+
+.lang-btn:hover,
+.lang-btn.is-active {
+  opacity: 1;
+}
+
+.lang-btn img {
+  display: block;
+  width: 14px;
+  height: 8px;
+  border: 1px solid var(--clr-text);
+}
+
+/* --- Intro Layout ---------------------------------------- */
+#intro {
+  position: fixed;
+  inset: 0;
+}
+
+/* --- Circle Orbits --------------------------------------- */
+.circle-orbit {
+  position: absolute;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.circle-orbit:focus {
+  outline: 2px solid var(--clr-text);
+  outline-offset: 4px;
+}
+
+/* Main center circle */
+#circle-main {
+  width:  var(--circle-main);
+  height: var(--circle-main);
+  top:  50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* North-East satellite */
+#circle-ne {
+  width:  var(--circle-ne);
+  height: var(--circle-ne);
+  top:  20%;
+  left: 80%;
+  transform: translate(-50%, -50%);
+}
+
+/* South-East satellite */
+#circle-se {
+  width:  var(--circle-se);
+  height: var(--circle-se);
+  top:  80%;
+  left: 90%;
+  transform: translate(-50%, -50%);
+}
+
+/* The artwork ring image (gets src swapped via JS) */
+.circle-ring {
+  position: absolute;
+  inset: 0;
+  width:  100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Dark inner overlay */
+.circle-inner {
+  position: absolute;
+  top:  50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width:  88%;
+  height: 88%;
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  /* keep inner from rotating with CSS animation on the ring */
+  z-index: 1;
+}
+
+/* Brand logo inside the inner circle */
+.circle-logo {
+  width:  45%;
+  height: 45%;
+  border-radius: 50%;
+  object-fit: contain;
+  border: 4px solid var(--clr-text);
+}
+
+/* --- Track Info ------------------------------------------ */
+#track-info {
+  position: fixed;
+  bottom: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  text-align: center;
+  font-family: var(--font-brand);
+  font-size: 1rem;
+  color: var(--clr-text);
+  opacity: 0.8;
+  pointer-events: none;
+}
+
+/* --- Mute Button ----------------------------------------- */
+#mute-btn {
+  position: fixed;
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: var(--z-nav);
+  opacity: 0.7;
+  transition: opacity var(--ease);
+}
+
+#mute-btn:hover {
+  opacity: 1;
+}
+
+#mute-btn img {
+  display: block;
+  width: 16px;
+  height: 16px;
+}
+
+/* --- Side Navigation ------------------------------------- */
+#side-nav {
+  position: fixed;
+  top: 50%;
+  left: 15px;
+  transform: translateY(-50%);
+  z-index: var(--z-nav);
+}
+
+#side-nav ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--nav-gap);
+}
+
+.nav-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: var(--nav-icon);
+}
+
+/* Icon button (circular) */
+.nav-icon {
+  width:  var(--nav-icon);
+  height: var(--nav-icon);
+  flex-shrink: 0;
+  border-radius: 50%;
+  background-color: var(--clr-bg);
+  border: 2px solid var(--clr-accent);
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  transition: border-color var(--ease);
+  /* reset for <a> elements */
+  text-decoration: none;
+  padding: 0;
+}
+
+.nav-icon:hover,
+.nav-icon:focus {
+  border-color: var(--clr-text);
+  outline: none;
+}
+
+.nav-icon img {
+  width:  100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Hover label (slides in from the right of the icon) */
+.nav-label {
+  position: absolute;
+  left: calc(var(--nav-icon) + 8px);
+  color: var(--clr-text);
+  white-space: nowrap;
+  font-family: var(--font-brand);
+  font-size: 0.9rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--ease);
+}
+
+.nav-item:hover .nav-label,
+.nav-item:focus-within .nav-label {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* --- Popup Modal ----------------------------------------- */
+#popup {
+  position: fixed;
+  top: 0;
+  left: 20%;
+  width: 60%;
+  height: 100%;
+  background-color: var(--clr-popup-bg);
+  color: var(--clr-text);
+  font-family: var(--font-brand);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: var(--z-popup);
+}
+
+#popup.is-open {
+  opacity: 0.95;
+  pointer-events: auto;
+}
+
+/* Close button */
+#popup-close {
+  position: absolute;
+  top: 6%;
+  left: 6%;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: var(--clr-close-btn);
+  border: none;
+  cursor: pointer;
+  opacity: 0.45;
+  transition: opacity var(--ease);
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  padding: 0;
+}
+
+#popup-close:hover,
+#popup-close:focus {
+  opacity: 0.9;
+  outline: none;
+}
+
+#popup-close img {
+  width:  20px;
+  height: 20px;
+  border-radius: 50%;
+  object-fit: contain;
+  opacity: 0.6;
+}
+
+/* Scrollable content area */
+#popup-content {
+  position: absolute;
+  top: 5%;
+  bottom: 5%;
+  left: 5%;
+  right: 5%;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--clr-accent) transparent;
+  line-height: 1.75;
+  text-align: center;
+}
+
+#popup-content:focus-visible {
+  outline: 2px solid var(--clr-text);
+  outline-offset: 2px;
+}
+
+/* Normalise the content loaded from section HTML files */
+#popup-content p {
+  margin-bottom: 0.9rem;
+}
+
+#popup-content center {
+  display: block;
+  text-align: center;
+}
+
+/* --- Loading Overlay ------------------------------------- */
+#loader {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: grid;
+  place-items: center;
+  z-index: var(--z-loader);
+  transition: opacity 0.3s ease;
+}
+
+#loader.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#loader img {
+  width:  120px;
+  height: 120px;
+  border-radius: 50%;
+  background-color: var(--clr-text);
+  opacity: 0.6;
+}
+
+/* --- Hidden preload container ---------------------------- */
+#hidden-load {
+  position: fixed;
+  top:  -9999px;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+/* --- Responsive ------------------------------------------ */
+
+/* Tablet / small desktop */
+@media (max-width: 900px) {
+  #popup {
+    left: 10%;
+    width: 80%;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  #site-title {
+    font-size: 1.1rem;
+    right: 15px;
+  }
+
+  #popup {
+    left: 0;
+    width: 100%;
+  }
+
+  /* Hide satellite circles on very small screens */
+  #circle-ne,
+  #circle-se {
+    display: none;
+  }
+
+  #track-info {
+    width: 80%;
+    font-size: 0.85rem;
+  }
+}

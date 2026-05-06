@@ -1,0 +1,42 @@
+/* =========================================================
+   FromScratch Studio — Animations
+   CSS keyframes only; referenced by main.css classes
+   ========================================================= */
+
+@keyframes ring-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes slide-in-popup {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 0.95;
+    transform: translateY(0);
+  }
+}
+
+/* Applied to each .circle-ring img */
+.circle-ring {
+  animation: ring-spin 20s linear infinite;
+  will-change: transform;
+}
+
+#circle-main .circle-ring  { animation-duration: 15s; }
+#circle-ne   .circle-ring  { animation-duration: 10s; animation-direction: reverse; }
+#circle-se   .circle-ring  { animation-duration: 22s; }
+
+/* Honour user accessibility preference */
+@media (prefers-reduced-motion: reduce) {
+  .circle-ring {
+    animation: none;
+  }
+}
