@@ -1,9 +1,12 @@
 /**
  * lang.js — i18n module
  *
- * Stores all UI string translations and provides setLang(code) to switch
- * between 'fr' and 'en' at runtime, updating every [data-i18n] element
- * and the document <html lang> attribute.
+ * UI strings are stored inline (rather than loaded from an external JSON)
+ * so that translations are applied synchronously on first render with no
+ * network round-trip or risk of a text-flash before labels appear.
+ *
+ * To add a new language: add a matching key block to `translations` below
+ * and a <button class="lang-btn" data-lang="…"> element in index.html.
  */
 
 const translations = {

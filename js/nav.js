@@ -11,6 +11,16 @@
 
 import { getLang } from './lang.js';
 
+/**
+ * Maps a section key to its HTML file path within the sections/ folder.
+ * Language code is appended at runtime (e.g. sections/EN/...).
+ */
+const SECTION_FILES = {
+  fromScratchStudio:   'fromscratchstudio.html',
+  fromScratchPictures: 'fromscratchpictures.html',
+  fromScratchRecords:  'fromscratchrecords.html',
+};
+
 let currentSection = '';
 let popupEl        = null;
 let contentEl      = null;
@@ -118,12 +128,9 @@ export async function refreshPopupLang() {
 /* ------------------------------------------------------------------ */
 
 function _sectionPath(section, lang) {
-  const map = {
-    fromScratchStudio:   `sections/${lang.toUpperCase()}/fromscratchstudio.html`,
-    fromScratchPictures: `sections/${lang.toUpperCase()}/fromscratchpictures.html`,
-    fromScratchRecords:  `sections/${lang.toUpperCase()}/fromscratchrecords.html`,
-  };
-  return map[section] ?? null;
+  const file = SECTION_FILES[section];
+  if (!file) return null;
+  return `sections/${lang.toUpperCase()}/${file}`;
 }
 
 /**
