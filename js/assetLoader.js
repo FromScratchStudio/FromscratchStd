@@ -83,8 +83,13 @@ function _preloadImages(paths) {
   function _onSettled() {
     settled += 1;
     if (settled >= total) {
-      // Use only successfully-loaded images; fall back to default if none succeeded
-      imagePaths = goodPaths.length > 0 ? goodPaths : [DEFAULT_IMAGE];
+      if (goodPaths.length > 0) {
+        imagePaths = goodPaths;
+      } else {
+        // All paths failed to load (e.g. case-sensitivity mismatch between JSON and disk)
+        console.warn('AssetLoader: no images loaded successfully; falling back to default image.');
+        imagePaths = [DEFAULT_IMAGE];
+      }
       _hideLoader();
       _startCycle();
     }

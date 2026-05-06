@@ -26,6 +26,8 @@ const SECTION_FILES = {
 /**
  * Human-readable titles used as the accessible name of the dialog.
  * Keys match SECTION_FILES.
+ * Note: the brand names are proper nouns and are identical in FR and EN
+ * by design — they are not translated.
  */
 const SECTION_TITLES = {
   fromScratchStudio:   { en: 'FromScratch Studio',   fr: 'FromScratch Studio'   },
@@ -48,6 +50,11 @@ export function initNav() {
   titleEl   = document.getElementById('popup-title');
 
   if (!popupEl || !contentEl || !closeBtn) return;
+
+  // titleEl is optional — popup works without it but will lack an accessible name
+  if (!titleEl) {
+    console.warn('Nav: #popup-title element not found; dialog will have no accessible name.');
+  }
 
   // Close button
   closeBtn.addEventListener('click', closePopup);
