@@ -7,6 +7,10 @@
  *
  * To add a new language: add a matching key block to `translations` below
  * and a <button class="lang-btn" data-lang="…"> element in index.html.
+ *
+ * Translation hooks:
+ *  - [data-i18n="key"]           → updates element.textContent
+ *  - [data-i18n-aria-label="key"]→ updates element's aria-label attribute
  */
 
 const translations = {
@@ -46,11 +50,18 @@ export function setLang(code) {
   document.documentElement.setAttribute('lang', code);
   document.documentElement.setAttribute('data-lang', code);
 
-  // Swap every element that declares a translation key
+  // Swap text content for every element that declares a translation key
   document.querySelectorAll('[data-i18n]').forEach((el) => {
     const key = el.getAttribute('data-i18n');
     const value = translations[code][key];
     if (value !== undefined) el.textContent = value;
+  });
+
+  // Swap aria-label attributes for elements that declare a translation key
+  document.querySelectorAll('[data-i18n-aria-label]').forEach((el) => {
+    const key = el.getAttribute('data-i18n-aria-label');
+    const value = translations[code][key];
+    if (value !== undefined) el.setAttribute('aria-label', value);
   });
 
   // Update active state on language buttons

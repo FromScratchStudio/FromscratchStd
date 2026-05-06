@@ -7,6 +7,8 @@
  *  - Popup close button    → close popup
  *  - Outside-click         → close popup (if click outside nav + popup)
  *  - Keyboard (Escape)     → close popup
+ *  - Focus management      → moves focus into popup on open, traps it,
+ *                            and restores it to the opener on close
  */
 
 import { getLang } from './lang.js';
@@ -21,16 +23,29 @@ const SECTION_FILES = {
   fromScratchRecords:  'fromscratchrecords.html',
 };
 
-let currentSection = '';
-let popupEl        = null;
-let contentEl      = null;
-let closeBtn       = null;
+/**
+ * Human-readable titles used as the accessible name of the dialog.
+ * Keys match SECTION_FILES.
+ */
+const SECTION_TITLES = {
+  fromScratchStudio:   { en: 'FromScratch Studio',   fr: 'FromScratch Studio'   },
+  fromScratchPictures: { en: 'FromScratch Stories',  fr: 'FromScratch Stories'  },
+  fromScratchRecords:  { en: 'FromScratch Records',  fr: 'FromScratch Records'  },
+};
+
+let currentSection  = '';
+let popupEl         = null;
+let contentEl       = null;
+let closeBtn        = null;
+let titleEl         = null;
+let openerElement   = null; // element that triggered the current popup
 
 /** Initialise nav; must be called after DOMContentLoaded. */
 export function initNav() {
   popupEl   = document.getElementById('popup');
   contentEl = document.getElementById('popup-content');
   closeBtn  = document.getElementById('popup-close');
+  titleEl   = document.getElementById('popup-title');
 
   if (!popupEl || !contentEl || !closeBtn) return;
 
@@ -41,11 +56,11 @@ export function initNav() {
   document.querySelectorAll('#side-nav .nav-item[data-section]').forEach((item) => {
     const btn = item.querySelector('.nav-icon');
     if (btn) {
-      btn.addEventListener('click', () => openPopup(item.dataset.section));
+      btn.addEventListener('click', () => openPopup(item.dataset.section, btn));
       btn.addEventListener('keydown', (e) => {
         if (e.key === 'Enter' || e.key === ' ') {
           e.preventDefault();
-          openPopup(item.dataset.section);
+          openPopup(item.dataset.section, btn);
         }
       });
     }
@@ -53,11 +68,11 @@ export function initNav() {
 
   // Circle orbits in the intro
   document.querySelectorAll('.circle-orbit[data-section]').forEach((circle) => {
-    circle.addEventListener('click', () => openPopup(circle.dataset.section));
+    circle.addEventListener('click', () => openPopup(circle.dataset.section, circle));
     circle.addEventListener('keydown', (e) => {
       if (e.key === 'Enter' || e.key === ' ') {
         e.preventDefault();
-        openPopup(circle.dataset.section);
+        openPopup(circle.dataset.section, circle);
       }
     });
   });
@@ -65,18 +80,25 @@ export function initNav() {
   // Outside-click closes popup
   document.addEventListener('click', _onDocumentClick);
 
-  // Keyboard Escape closes popup
+  // Keyboard Escape closes popup; Tab is trapped inside the popup
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closePopup();
+    if (e.key === 'Escape') {
+      closePopup();
+      return;
+    }
+    if (e.key === 'Tab' && popupEl?.classList.contains('is-open')) {
+      _trapFocus(e);
+    }
   });
 }
 
 /**
  * Open a popup for the given section name.
  * Clicking the same section again while open will close it.
- * @param {string} section  - e.g. 'fromScratchStudio'
+ * @param {string} section - e.g. 'fromScratchStudio'
+ * @param {Element} [trigger] - element that triggered the open (to restore focus on close)
  */
-export async function openPopup(section) {
+export async function openPopup(section, trigger) {
   if (section === currentSection) {
     closePopup();
     return;
@@ -87,11 +109,23 @@ export async function openPopup(section) {
 
   if (!path) return;
 
+  // Remember who opened the popup so focus can be restored on close
+  openerElement = trigger ?? document.activeElement;
+
+  // Update accessible dialog title
+  if (titleEl) {
+    const titles = SECTION_TITLES[section];
+    titleEl.textContent = titles ? (titles[lang] ?? titles.en) : '';
+  }
+
   // Clear previous content while loading
   contentEl.innerHTML = '';
   popupEl.classList.add('is-open');
   popupEl.setAttribute('aria-hidden', 'false');
   currentSection = section;
+
+  // Move focus into the popup (close button is the first focusable element)
+  closeBtn.focus();
 
   try {
     const res  = await fetch(path);
@@ -105,13 +139,19 @@ export async function openPopup(section) {
   }
 }
 
-/** Close the popup panel. */
+/** Close the popup panel and restore focus to the triggering element. */
 export function closePopup() {
   if (!popupEl) return;
   popupEl.classList.remove('is-open');
   popupEl.setAttribute('aria-hidden', 'true');
   currentSection = '';
   if (contentEl) contentEl.innerHTML = '';
+
+  // Restore focus to the element that opened the popup
+  if (openerElement && typeof openerElement.focus === 'function') {
+    openerElement.focus();
+  }
+  openerElement = null;
 }
 
 /**
@@ -148,6 +188,37 @@ function _extractBody(html) {
   body.querySelectorAll('link, script, style').forEach((el) => el.remove());
 
   return body.innerHTML;
+}
+
+/**
+ * Trap keyboard focus inside the popup while it is open.
+ * Wraps from the last focusable element back to the first (and vice-versa).
+ * @param {KeyboardEvent} e
+ */
+function _trapFocus(e) {
+  const focusable = Array.from(
+    popupEl.querySelectorAll(
+      'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
+    )
+  );
+  if (focusable.length === 0) return;
+
+  const first = focusable[0];
+  const last  = focusable[focusable.length - 1];
+
+  if (e.shiftKey) {
+    // Shift+Tab: if on the first element, wrap to last
+    if (document.activeElement === first) {
+      e.preventDefault();
+      last.focus();
+    }
+  } else {
+    // Tab: if on the last element, wrap to first
+    if (document.activeElement === last) {
+      e.preventDefault();
+      first.focus();
+    }
+  }
 }
 
 function _onDocumentClick(e) {

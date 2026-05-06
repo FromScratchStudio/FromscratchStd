@@ -42,10 +42,10 @@ export async function initAssets() {
       .filter((p) => typeof p === 'string' && p.length > 0);
 
     // De-duplicate while preserving order
-    imagePaths = [...new Set(paths)];
+    const unique = [...new Set(paths)];
 
-    // Preload all images off-screen; hide loader when done
-    _preloadImages(imagePaths);
+    // Preload images; only keep those that actually load successfully
+    _preloadImages(unique);
   } catch (err) {
     console.error('AssetLoader: could not load', ASSETS_JSON, err);
     _hideLoader();
@@ -59,22 +59,32 @@ function _preloadImages(paths) {
   const container = document.getElementById('hidden-load');
   if (!container) { _hideLoader(); _startCycle(); return; }
 
-  let loaded = 0;
   const total = paths.length;
-
   if (total === 0) { _hideLoader(); _startCycle(); return; }
+
+  let settled = 0;
+  const goodPaths = [];
 
   paths.forEach((src) => {
     const img = new Image();
+    img.addEventListener('load', () => {
+      goodPaths.push(src);
+      _onSettled();
+    }, { once: true });
+    img.addEventListener('error', () => {
+      // Path could not be loaded (e.g. case-sensitivity mismatch on disk);
+      // skip silently rather than cycling through broken URLs
+      _onSettled();
+    }, { once: true });
     img.src = src;
-    img.addEventListener('load',  _onImageReady, { once: true });
-    img.addEventListener('error', _onImageReady, { once: true });
     container.appendChild(img);
   });
 
-  function _onImageReady() {
-    loaded += 1;
-    if (loaded >= total) {
+  function _onSettled() {
+    settled += 1;
+    if (settled >= total) {
+      // Use only successfully-loaded images; fall back to default if none succeeded
+      imagePaths = goodPaths.length > 0 ? goodPaths : [DEFAULT_IMAGE];
       _hideLoader();
       _startCycle();
     }

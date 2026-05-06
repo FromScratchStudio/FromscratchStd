@@ -7,6 +7,8 @@
  * user explicitly clicks the mute button.
  */
 
+import { t } from './lang.js';
+
 const MUTE_ICON   = 'img/logos/mute.jpg';
 const UNMUTE_ICON = 'img/logos/unmute.jpg';
 
@@ -45,12 +47,14 @@ export function toggleMute() {
 export function play() {
   if (!audioEl) return;
   audioEl.muted = false;
-  audioEl.play().catch((err) => {
-    // Play was prevented (e.g. strict autoplay policy)
+  audioEl.play().then(() => {
+    isPlaying = true;
+    _updateIcon();
+  }).catch((err) => {
+    // Play was prevented (e.g. strict autoplay policy); revert muted state
+    audioEl.muted = true;
     console.warn('Audio play prevented:', err);
   });
-  isPlaying = true;
-  _updateIcon();
 }
 
 export function pause() {
@@ -69,5 +73,6 @@ export function isAudioPlaying() {
 function _updateIcon() {
   if (!muteBtn || !muteImg) return;
   muteBtn.setAttribute('aria-pressed', isPlaying ? 'true' : 'false');
+  muteBtn.setAttribute('aria-label', t(isPlaying ? 'unmute.aria' : 'mute.aria'));
   muteImg.src = isPlaying ? UNMUTE_ICON : MUTE_ICON;
 }

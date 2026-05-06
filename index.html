@@ -109,7 +109,10 @@
     <p id="track-info" aria-live="polite">FromScratch Creative Studio</p>
 
     <!-- Mute toggle -->
-    <button id="mute-btn" aria-label="Enable music" aria-pressed="false">
+    <button id="mute-btn"
+            aria-label="Enable music"
+            aria-pressed="false"
+            data-i18n-aria-label="mute.aria">
       <img id="mute-img"
            src="img/logos/mute.jpg"
            alt=""
@@ -171,9 +174,14 @@
   <div id="popup"
        role="dialog"
        aria-modal="true"
-       aria-hidden="true">
+       aria-hidden="true"
+       aria-labelledby="popup-title">
+    <!-- Visually hidden title — updated by nav.js when a section opens -->
+    <span id="popup-title" class="sr-only"></span>
     <!-- Close button — img/logos/FssBtn.png (capital F, exact filename on disk) -->
-    <button id="popup-close" aria-label="Close">
+    <button id="popup-close"
+            aria-label="Close"
+            data-i18n-aria-label="popup.close">
       <img src="img/logos/FssBtn.png" alt="" loading="lazy" aria-hidden="true">
     </button>
     <div id="popup-content" tabindex="0" aria-live="polite"></div>
