@@ -105,7 +105,7 @@ export function initNav() {
  * @param {string} section - e.g. 'fromScratchStudio'
  * @param {Element} [trigger] - element that triggered the open (to restore focus on close)
  */
-export async function openPopup(section, trigger) {
+async function openPopup(section, trigger) {
   if (section === currentSection) {
     closePopup();
     return;
@@ -147,7 +147,7 @@ export async function openPopup(section, trigger) {
 }
 
 /** Close the popup panel and restore focus to the triggering element. */
-export function closePopup() {
+function closePopup() {
   if (!popupEl) return;
   popupEl.classList.remove('is-open');
   popupEl.setAttribute('aria-hidden', 'true');
